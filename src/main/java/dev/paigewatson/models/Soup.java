@@ -8,6 +8,6 @@ public class Soup implements StoreItem
 
     public String getWordingForCount(int count)
     {
-    return "1 tin of soup";
+        return "1 tin of soup";
     }
 }
