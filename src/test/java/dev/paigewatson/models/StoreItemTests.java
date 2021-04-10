@@ -23,5 +23,28 @@ public class StoreItemTests
             //assert
             assertThat(wordingForCount).isEqualTo("1 tin of soup");
         }
+
+        @Test
+        public void should_itsCost_andReturn65()
+        {
+            //assign
+            final StoreItem soup = new Soup();
+
+            //act
+            final int total = soup.AddCostToTotal(0);
+            //assert
+            assertThat(total).isEqualTo(65);
+        }
+        @Test
+        public void should_itsCost_andReturn175()
+        {
+            //assign
+            final StoreItem soup = new Soup();
+
+            //act
+            final int total = soup.AddCostToTotal(110);
+            //assert
+            assertThat(total).isEqualTo(175);
+        }
     }
 }
