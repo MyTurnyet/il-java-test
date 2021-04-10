@@ -13,10 +13,7 @@ public class StoreItemTests
     public void should_itsCost_andReturn65()
     {
         //assign
-        String name = "soup";
-        String unit = "tin";
-        int costPerUnit = 65;
-        final StoreItem soup = new Item(name, unit, costPerUnit);
+        final StoreItem soup = Item.Soup();
 
         //act
         final int total = soup.AddCostToTotal(0);
@@ -28,10 +25,7 @@ public class StoreItemTests
     public void should_itsCost_andReturn175()
     {
         //assign
-        String name = "soup";
-        String unit = "tin";
-        int costPerUnit = 65;
-        final StoreItem soup = new Item(name, unit, costPerUnit);
+        final StoreItem soup = Item.Soup();
 
         //act
         final int total = soup.AddCostToTotal(110);

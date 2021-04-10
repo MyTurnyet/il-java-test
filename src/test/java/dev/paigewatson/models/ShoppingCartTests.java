@@ -27,7 +27,7 @@ public class ShoppingCartTests
         final ShoppingCart shoppingCart = new ShoppingCart();
 
         //act
-        shoppingCart.addItem(new Item("Soup", "tin", 65));
+        shoppingCart.addItem(Item.Soup());
         //assert
         assertThat(shoppingCart.itemCount()).isEqualTo(1);
     }
