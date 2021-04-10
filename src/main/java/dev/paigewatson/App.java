@@ -18,9 +18,15 @@ public class App
 
     public void run()
     {
-        if (inputReader.hasValidInteger())
+        if (inputReader.hasInput())
         {
-            printStream.print("you pressed: 1");
+            if (inputReader.hasValidInteger())
+            {
+                printStream.print("you pressed: 1");
+            } else
+            {
+                printStream.print("Please input a number");
+            }
         }
     }
 }
