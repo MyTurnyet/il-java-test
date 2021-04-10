@@ -14,7 +14,8 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class StoreItemTests
 {
 
-    private static Stream<Arguments> provideStringsForMatchItem() {
+    private static Stream<Arguments> provideStringsForMatchItem()
+    {
         return Stream.of(
                 Arguments.of(Item.Soup(), "soup", 65),
                 Arguments.of(Item.Bread(), "bread", 80),
