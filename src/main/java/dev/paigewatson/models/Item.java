@@ -8,26 +8,26 @@ public class Item implements StoreItem
 
     public static StoreItem Soup()
     {
-        return new Item("soup", "tin", 65);
+        return new Item("soup", 65);
     }
 
     public static StoreItem Bread()
     {
-        return new Item("bread", "loaf", 80);
+        return new Item("bread",  80);
 
     }
     public static StoreItem Apples()
     {
-        return new Item("apples", "single", 10);
+        return new Item("apples",  10);
 
     }
     public static StoreItem Milk()
     {
-        return new Item("milk", "bottle", 130);
+        return new Item("milk", 130);
 
     }
 
-    private Item(String itemName, String unit, int costPerUnit)
+    private Item(String itemName, int costPerUnit)
     {
         this.itemName = itemName;
         this.costPerUnit = costPerUnit;
