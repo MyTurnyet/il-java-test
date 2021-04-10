@@ -10,19 +10,16 @@ public class StoreItemTests
 {
     @Nested
     @Tag("Unit")
-    class UnitTests
+    class SoupTests
     {
         @Test
         public void should_createStoreItem()
         {
             //assign
-            String name = "soup";
-            String unit = "tin";
-            int cost = 65;
-            final StoreItem storeItem = new StoreItem(name, unit, cost);
+            final StoreItem soup = new Soup();
 
             //act
-            final String wordingForCount = storeItem.getWordingForCount(1);
+            final String wordingForCount = soup.getWordingForCount(1);
             //assert
             assertThat(wordingForCount).isEqualTo("1 tin of soup");
         }
