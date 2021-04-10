@@ -6,10 +6,15 @@ import java.util.List;
 
 public class ShoppingCart
 {
-    private final List<StoreItem> itemsInCart = Collections.emptyList();
+    private final ArrayList<StoreItem> itemsInCart = new ArrayList<>();
 
     public int itemCount()
     {
         return itemsInCart.size();
+    }
+
+    public void addItem(StoreItem item)
+    {
+        itemsInCart.add(item);
     }
 }

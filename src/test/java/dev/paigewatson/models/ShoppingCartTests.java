@@ -20,4 +20,16 @@ public class ShoppingCartTests
         //assert
         assertThat(itemCount).isEqualTo(0);
     }
+
+    @Test
+    public void should_addSoup_toTheItemList()
+    {
+        //assign
+        final ShoppingCart shoppingCart = new ShoppingCart();
+
+        //act
+        shoppingCart.addItem(new Soup());
+        //assert
+        assertThat(shoppingCart.itemCount()).isEqualTo(1);
+    }
 }
