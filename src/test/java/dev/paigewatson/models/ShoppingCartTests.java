@@ -1,6 +1,5 @@
 package dev.paigewatson.models;
 
-import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -28,7 +27,7 @@ public class ShoppingCartTests
         final ShoppingCart shoppingCart = new ShoppingCart();
 
         //act
-        shoppingCart.addItem(new Soup());
+        shoppingCart.addItem(new Item());
         //assert
         assertThat(shoppingCart.itemCount()).isEqualTo(1);
     }

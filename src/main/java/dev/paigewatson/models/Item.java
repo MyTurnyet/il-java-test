@@ -1,16 +1,10 @@
 package dev.paigewatson.models;
 
-public class Soup implements StoreItem
+public class Item implements StoreItem
 {
-    public Soup()
+    public Item()
     {
     }
-
-    public String getWordingForCount(int count)
-    {
-        return "1 tin of soup";
-    }
-
     @Override
     public int AddCostToTotal(int currentTotalCost)
     {
