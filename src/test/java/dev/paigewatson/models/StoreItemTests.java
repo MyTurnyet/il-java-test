@@ -8,6 +8,28 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @Tag("Unit")
 public class StoreItemTests
 {
+    @Test
+    public void should_matchSoup_byName()
+    {
+        //assign
+        String soupName = "Soup";
+        final StoreItem item = Item.Soup();
+        //act
+        final boolean hasSameName = item.hasSameName(soupName);
+        //assert
+        assertThat(hasSameName).isTrue();
+    }
+    @Test
+    public void shouldNot_matchSoup_byName()
+    {
+        //assign
+        String soupName = "Stuff";
+        final StoreItem item = Item.Soup();
+        //act
+        final boolean hasSameName = item.hasSameName(soupName);
+        //assert
+        assertThat(hasSameName).isFalse();
+    }
 
     @Test
     public void should_itsCost_andReturn65()
