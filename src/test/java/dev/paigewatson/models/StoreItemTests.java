@@ -2,6 +2,11 @@ package dev.paigewatson.models;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -9,27 +14,23 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class StoreItemTests
 {
 
-    @Test
-    public void should_matchSoup_byName()
+    private static Stream<Arguments> provideStringsForMatchItem() {
+        return Stream.of(
+                Arguments.of(Item.Soup(), "soup", 65)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideStringsForMatchItem")
+    public void should_matchSoup_byName(StoreItem storeItem, String expectedName, int expectedCost)
     {
         //assign
-        String soupName = "soup";
-        final StoreItem item = Item.Soup();
         //act
-        final boolean hasSameName = item.hasSameName(soupName);
+        final boolean hasSameName = storeItem.hasSameName(expectedName);
+        final int total = storeItem.AddCostToTotal(0);
         //assert
         assertThat(hasSameName).isTrue();
-    }
-    @Test
-    public void shouldNot_matchSoup_byName()
-    {
-        //assign
-        String soupName = "stuff";
-        final StoreItem item = Item.Soup();
-        //act
-        final boolean hasSameName = item.hasSameName(soupName);
-        //assert
-        assertThat(hasSameName).isFalse();
+        assertThat(total).isEqualTo(expectedCost);
     }
 
     @Test
