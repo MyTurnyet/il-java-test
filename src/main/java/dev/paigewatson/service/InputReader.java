@@ -1,10 +1,16 @@
 package dev.paigewatson.service;
 
+import java.io.InputStream;
 import java.util.Scanner;
 
 public class InputReader
 {
     private final Scanner scanner;
+
+    public InputReader(InputStream inputStream)
+    {
+        this(new Scanner(inputStream));
+    }
 
     public InputReader(Scanner scanner)
     {

@@ -48,8 +48,7 @@ public class InputReaderTests
     {
         //assign
         final ByteArrayInputStream inputStream = new ByteArrayInputStream("a".getBytes());
-        final Scanner scanner = new Scanner(inputStream);
-        final InputReader inputReader = new InputReader(scanner);
+        final InputReader inputReader = new InputReader(inputStream);
 
         //act
         final boolean validInteger = inputReader.hasValidInteger();
@@ -61,8 +60,7 @@ public class InputReaderTests
     {
         //assign
         final ByteArrayInputStream inputStream = new ByteArrayInputStream("4".getBytes());
-        final Scanner scanner = new Scanner(inputStream);
-        final InputReader inputReader = new InputReader(scanner);
+        final InputReader inputReader = new InputReader(inputStream);
 
         //act
         final boolean validInteger = inputReader.hasValidInteger();

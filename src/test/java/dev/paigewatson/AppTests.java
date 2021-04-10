@@ -19,8 +19,7 @@ public class AppTests
     {
         //assign
         final ByteArrayInputStream inputStream = new ByteArrayInputStream("1".getBytes());
-        final Scanner scanner = new Scanner(inputStream);
-        final InputReader inputReader = new InputReader(scanner);
+        final InputReader inputReader = new InputReader(inputStream);
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         final PrintStream printStream = new PrintStream(output);
         final App app = new App(printStream, inputReader);
@@ -35,8 +34,7 @@ public class AppTests
     {
         //assign
         final ByteArrayInputStream inputStream = new ByteArrayInputStream("".getBytes());
-        final Scanner scanner = new Scanner(inputStream);
-        final InputReader inputReader = new InputReader(scanner);
+        final InputReader inputReader = new InputReader(inputStream);
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         final PrintStream printStream = new PrintStream(output);
         final App app = new App(printStream, inputReader);
@@ -52,8 +50,7 @@ public class AppTests
     {
         //assign
         final ByteArrayInputStream inputStream = new ByteArrayInputStream("a".getBytes());
-        final Scanner scanner = new Scanner(inputStream);
-        final InputReader inputReader = new InputReader(scanner);
+        final InputReader inputReader = new InputReader(inputStream);
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         final PrintStream printStream = new PrintStream(output);
         final App app = new App(printStream, inputReader);
