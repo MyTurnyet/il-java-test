@@ -16,7 +16,10 @@ public class StoreItemTests
 
     private static Stream<Arguments> provideStringsForMatchItem() {
         return Stream.of(
-                Arguments.of(Item.Soup(), "soup", 65)
+                Arguments.of(Item.Soup(), "soup", 65),
+                Arguments.of(Item.Bread(), "bread", 80),
+                Arguments.of(Item.Apples(), "apples", 10),
+                Arguments.of(Item.Milk(), "milk", 130)
         );
     }
 
