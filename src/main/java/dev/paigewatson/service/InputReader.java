@@ -12,7 +12,7 @@ public class InputReader
         this(new Scanner(inputStream));
     }
 
-    public InputReader(Scanner scanner)
+    private InputReader(Scanner scanner)
     {
         this.scanner = scanner;
     }

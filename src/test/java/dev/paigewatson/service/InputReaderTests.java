@@ -17,9 +17,8 @@ public class InputReaderTests
     {
         //assign
         final ByteArrayInputStream inputStream = new ByteArrayInputStream("1".getBytes());
-        final Scanner scanner = new Scanner(inputStream);
 
-        final InputReader inputReader = new InputReader(scanner);
+        final InputReader inputReader = new InputReader(inputStream);
 
         //act
         final boolean hasInput = inputReader.hasInput();
@@ -33,9 +32,8 @@ public class InputReaderTests
     {
         //assign
         final ByteArrayInputStream inputStream = new ByteArrayInputStream("".getBytes());
-        final Scanner scanner = new Scanner(inputStream);
 
-        final InputReader inputReader = new InputReader(scanner);
+        final InputReader inputReader = new InputReader(inputStream);
 
         //act
         final boolean hasInput = inputReader.hasInput();
