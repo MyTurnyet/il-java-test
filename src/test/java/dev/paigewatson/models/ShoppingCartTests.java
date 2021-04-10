@@ -31,4 +31,24 @@ public class ShoppingCartTests
         //assert
         assertThat(shoppingCart.itemCount()).isEqualTo(1);
     }
+
+    @Test
+    public void should_calculateCosts()
+    {
+        //assign
+        final ShoppingCart shoppingCart = new ShoppingCart();
+
+        for (int numberToAdd = 0; numberToAdd < 6; numberToAdd++)
+        {
+            shoppingCart.addItem(Item.Apples());
+        }
+        shoppingCart.addItem(Item.Milk());
+
+        //act
+
+        final int totalCost = shoppingCart.totalCost();
+
+        //assert
+        assertThat(totalCost).isEqualTo(190);
+    }
 }

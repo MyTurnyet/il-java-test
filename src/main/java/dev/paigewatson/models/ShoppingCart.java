@@ -15,4 +15,14 @@ public class ShoppingCart
     {
         itemsInCart.add(item);
     }
+
+    public int totalCost()
+    {
+        int total = 0;
+        for (StoreItem storeItem : itemsInCart)
+        {
+            total = storeItem.AddCostToTotal(total);
+        }
+        return total;
+    }
 }
