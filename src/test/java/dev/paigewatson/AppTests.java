@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Scanner;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -15,9 +16,10 @@ public class AppTests
     public void should_take_outputWriterAndReader_inConstructor()
     {
         //assign
+        final Scanner scanner = new Scanner(System.in);
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         final PrintStream printStream = new PrintStream(output);
-        final App app = new App(printStream);
+        final App app = new App(printStream, scanner);
 
         //act
         app.run();
