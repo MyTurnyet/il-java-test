@@ -46,22 +46,6 @@ public class AppTests
         //assert
         assertThat(output.toString()).isEqualTo("");
     }
-    @Test
-    public void shouldNotOutput_aString_whenNothing_passedToScanner()
-    {
-        //assign
-        final ByteArrayInputStream inputStream = new ByteArrayInputStream("".getBytes());
-        final Scanner scanner = new Scanner(inputStream);
-        final InputReader inputReader = new InputReader(scanner);
-        ByteArrayOutputStream output = new ByteArrayOutputStream();
-        final PrintStream printStream = new PrintStream(output);
-        final App app = new App(printStream, inputReader);
-
-        //act
-        app.run();
-        //assert
-        assertThat(output.toString()).isEqualTo("");
-    }
 
     @Test
     public void shouldOutput_errorMessage_whenNonInt_passedToScanner()
