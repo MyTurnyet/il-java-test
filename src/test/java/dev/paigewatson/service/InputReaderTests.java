@@ -13,7 +13,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class InputReaderTests
 {
     @Test
-    public void should_readInput_asInt()
+    public void should_returnTrue_whenHasInput()
     {
         //assign
         final ByteArrayInputStream inputStream = new ByteArrayInputStream("1".getBytes());
@@ -26,6 +26,20 @@ public class InputReaderTests
         final boolean hasInput = inputReader.hasInput();
         //assert
         assertThat(hasInput).isTrue();
+
+    }
+
+    @Test
+    public void should_returnFalse_whenNoInput()
+    {
+        //assign
+        final Scanner scanner = new Scanner(System.in);
+        final InputReader inputReader = new InputReader(scanner);
+
+        //act
+        final boolean hasInput = inputReader.hasInput();
+        //assert
+        assertThat(hasInput).isFalse();
 
     }
 }
