@@ -3,6 +3,7 @@ package dev.paigewatson;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Scanner;
@@ -16,6 +17,8 @@ public class AppTests
     public void should_take_outputWriterAndReader_inConstructor()
     {
         //assign
+        final ByteArrayInputStream inputStream = new ByteArrayInputStream("1".getBytes());
+        System.setIn(inputStream);
         final Scanner scanner = new Scanner(System.in);
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         final PrintStream printStream = new PrintStream(output);
@@ -24,6 +27,6 @@ public class AppTests
         //act
         app.run();
         //assert
-        assertThat(output.toString()).isEqualTo("hello world");
+        assertThat(output.toString()).isEqualTo("you pressed: 1");
     }
 }
