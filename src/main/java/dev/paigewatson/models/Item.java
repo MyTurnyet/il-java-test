@@ -2,7 +2,8 @@ package dev.paigewatson.models;
 
 public class Item implements StoreItem
 {
-    public Item()
+
+    public Item(String name, String unit, int costPerUnit)
     {
     }
     @Override
