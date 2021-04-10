@@ -1,29 +1,8 @@
 package dev.paigewatson.service;
 
-import java.io.InputStream;
-import java.util.Scanner;
-
-public class InputReader
+public interface InputReader
 {
-    private final Scanner scanner;
+    boolean hasInput();
 
-    public InputReader(InputStream inputStream)
-    {
-        this(new Scanner(inputStream));
-    }
-
-    private InputReader(Scanner scanner)
-    {
-        this.scanner = scanner;
-    }
-
-    public boolean hasInput()
-    {
-        return scanner.hasNext();
-    }
-
-    public boolean hasValidInteger()
-    {
-        return scanner.hasNextInt();
-    }
+    boolean hasValidInteger();
 }

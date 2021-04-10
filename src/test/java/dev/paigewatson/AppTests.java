@@ -1,5 +1,6 @@
 package dev.paigewatson;
 
+import dev.paigewatson.service.CommandLineReader;
 import dev.paigewatson.service.InputReader;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -7,7 +8,6 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.Scanner;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -19,7 +19,7 @@ public class AppTests
     {
         //assign
         final ByteArrayInputStream inputStream = new ByteArrayInputStream("1".getBytes());
-        final InputReader inputReader = new InputReader(inputStream);
+        final InputReader inputReader = new CommandLineReader(inputStream);
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         final PrintStream printStream = new PrintStream(output);
         final App app = new App(printStream, inputReader);
@@ -34,7 +34,7 @@ public class AppTests
     {
         //assign
         final ByteArrayInputStream inputStream = new ByteArrayInputStream("".getBytes());
-        final InputReader inputReader = new InputReader(inputStream);
+        final InputReader inputReader = new CommandLineReader(inputStream);
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         final PrintStream printStream = new PrintStream(output);
         final App app = new App(printStream, inputReader);
@@ -50,7 +50,7 @@ public class AppTests
     {
         //assign
         final ByteArrayInputStream inputStream = new ByteArrayInputStream("a".getBytes());
-        final InputReader inputReader = new InputReader(inputStream);
+        final InputReader inputReader = new CommandLineReader(inputStream);
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         final PrintStream printStream = new PrintStream(output);
         final App app = new App(printStream, inputReader);

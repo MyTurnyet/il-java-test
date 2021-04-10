@@ -1,11 +1,9 @@
 package dev.paigewatson.service;
 
-import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
-import java.util.Scanner;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -18,7 +16,7 @@ public class InputReaderTests
         //assign
         final ByteArrayInputStream inputStream = new ByteArrayInputStream("1".getBytes());
 
-        final InputReader inputReader = new InputReader(inputStream);
+        final InputReader inputReader = new CommandLineReader(inputStream);
 
         //act
         final boolean hasInput = inputReader.hasInput();
@@ -33,7 +31,7 @@ public class InputReaderTests
         //assign
         final ByteArrayInputStream inputStream = new ByteArrayInputStream("".getBytes());
 
-        final InputReader inputReader = new InputReader(inputStream);
+        final InputReader inputReader = new CommandLineReader(inputStream);
 
         //act
         final boolean hasInput = inputReader.hasInput();
@@ -46,7 +44,7 @@ public class InputReaderTests
     {
         //assign
         final ByteArrayInputStream inputStream = new ByteArrayInputStream("a".getBytes());
-        final InputReader inputReader = new InputReader(inputStream);
+        final InputReader inputReader = new CommandLineReader(inputStream);
 
         //act
         final boolean validInteger = inputReader.hasValidInteger();
@@ -58,7 +56,7 @@ public class InputReaderTests
     {
         //assign
         final ByteArrayInputStream inputStream = new ByteArrayInputStream("4".getBytes());
-        final InputReader inputReader = new InputReader(inputStream);
+        final InputReader inputReader = new CommandLineReader(inputStream);
 
         //act
         final boolean validInteger = inputReader.hasValidInteger();
