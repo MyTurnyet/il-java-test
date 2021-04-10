@@ -15,4 +15,9 @@ public class InputReader
     {
         return scanner.hasNext();
     }
+
+    public boolean hasValidInteger()
+    {
+        return scanner.hasNextInt();
+    }
 }

@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-    @Tag("Unit")
+@Tag("Unit")
 public class InputReaderTests
 {
     @Test
@@ -41,6 +41,32 @@ public class InputReaderTests
         final boolean hasInput = inputReader.hasInput();
         //assert
         assertThat(hasInput).isFalse();
+    }
 
+    @Test
+    public void shouldNot_validateInput_asInt()
+    {
+        //assign
+        final ByteArrayInputStream inputStream = new ByteArrayInputStream("a".getBytes());
+        final Scanner scanner = new Scanner(inputStream);
+        final InputReader inputReader = new InputReader(scanner);
+
+        //act
+        final boolean validInteger = inputReader.hasValidInteger();
+        //assert
+        assertThat(validInteger).isFalse();
+    }
+    @Test
+    public void should_validateInput_asInt()
+    {
+        //assign
+        final ByteArrayInputStream inputStream = new ByteArrayInputStream("4".getBytes());
+        final Scanner scanner = new Scanner(inputStream);
+        final InputReader inputReader = new InputReader(scanner);
+
+        //act
+        final boolean validInteger = inputReader.hasValidInteger();
+        //assert
+        assertThat(validInteger).isTrue();
     }
 }
