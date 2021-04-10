@@ -33,7 +33,7 @@ public class ShoppingCartTests
     }
 
     @Test
-    public void should_calculateCosts()
+    public void should_calculateCosts_6Apples_1Milk()
     {
         //assign
         final ShoppingCart shoppingCart = new ShoppingCart();
@@ -45,10 +45,27 @@ public class ShoppingCartTests
         shoppingCart.addItem(Item.Milk());
 
         //act
-
         final int totalCost = shoppingCart.totalCost();
 
         //assert
         assertThat(totalCost).isEqualTo(190);
+    }
+    @Test
+    public void should_calculateCosts_2Bread_1Milk()
+    {
+        //assign
+        final ShoppingCart shoppingCart = new ShoppingCart();
+
+        for (int numberToAdd = 0; numberToAdd < 2; numberToAdd++)
+        {
+            shoppingCart.addItem(Item.Bread());
+        }
+        shoppingCart.addItem(Item.Milk());
+
+        //act
+        final int totalCost = shoppingCart.totalCost();
+
+        //assert
+        assertThat(totalCost).isEqualTo(290);
     }
 }
