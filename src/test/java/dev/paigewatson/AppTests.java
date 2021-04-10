@@ -1,5 +1,6 @@
 package dev.paigewatson;
 
+import dev.paigewatson.service.InputReader;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -19,9 +20,10 @@ public class AppTests
         //assign
         final ByteArrayInputStream inputStream = new ByteArrayInputStream("1".getBytes());
         final Scanner scanner = new Scanner(inputStream);
+        final InputReader inputReader = new InputReader(scanner);
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         final PrintStream printStream = new PrintStream(output);
-        final App app = new App(printStream, scanner);
+        final App app = new App(printStream, inputReader);
 
         //act
         app.run();

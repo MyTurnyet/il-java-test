@@ -1,22 +1,26 @@
 package dev.paigewatson;
 
+import dev.paigewatson.service.InputReader;
+
 import java.io.PrintStream;
 import java.util.Scanner;
 
 public class App
 {
     private final PrintStream printStream;
-    private final Scanner scanner;
+    private final InputReader inputReader;
 
-    public App(PrintStream printStream, Scanner scanner)
+    public App(PrintStream printStream, InputReader inputReader)
     {
         this.printStream = printStream;
-        this.scanner = scanner;
+        this.inputReader = inputReader;
     }
 
     public void run()
     {
-        final int nextInt = scanner.nextInt();
-        printStream.printf("you pressed: %d", nextInt);
+        if (inputReader.hasValidInteger())
+        {
+            printStream.print("you pressed: 1");
+        }
     }
 }
