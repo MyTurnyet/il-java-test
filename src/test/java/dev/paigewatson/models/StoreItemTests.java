@@ -37,7 +37,7 @@ public class StoreItemTests
     }
 
     @Test
-    public void should_itsCost_andReturn65()
+    public void should_itemsCost_andReturnCostPlusZero()
     {
         //assign
         final StoreItem soup = Item.Soup();
@@ -49,7 +49,7 @@ public class StoreItemTests
     }
 
     @Test
-    public void should_itsCost_andReturn175()
+    public void should_itemsCost_andReturnCostPlusOneHundredAndTen()
     {
         //assign
         final StoreItem soup = Item.Soup();
