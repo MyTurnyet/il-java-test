@@ -7,7 +7,7 @@ public class Item implements StoreItem
 
     public static StoreItem Soup()
     {
-        return new Item("Soup", "tin", 65);
+        return new Item("soup", "tin", 65);
     }
 
     private Item(String itemName, String unit, int costPerUnit)

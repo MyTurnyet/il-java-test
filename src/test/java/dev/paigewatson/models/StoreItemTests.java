@@ -8,11 +8,12 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @Tag("Unit")
 public class StoreItemTests
 {
+
     @Test
     public void should_matchSoup_byName()
     {
         //assign
-        String soupName = "Soup";
+        String soupName = "soup";
         final StoreItem item = Item.Soup();
         //act
         final boolean hasSameName = item.hasSameName(soupName);
@@ -23,7 +24,7 @@ public class StoreItemTests
     public void shouldNot_matchSoup_byName()
     {
         //assign
-        String soupName = "Stuff";
+        String soupName = "stuff";
         final StoreItem item = Item.Soup();
         //act
         final boolean hasSameName = item.hasSameName(soupName);
