@@ -18,8 +18,7 @@ public class AppTests
     {
         //assign
         final ByteArrayInputStream inputStream = new ByteArrayInputStream("1".getBytes());
-        System.setIn(inputStream);
-        final Scanner scanner = new Scanner(System.in);
+        final Scanner scanner = new Scanner(inputStream);
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         final PrintStream printStream = new PrintStream(output);
         final App app = new App(printStream, scanner);
