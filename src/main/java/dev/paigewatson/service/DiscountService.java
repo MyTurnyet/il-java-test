@@ -1,25 +1,27 @@
 package dev.paigewatson.service;
 
-import dev.paigewatson.models.DiscountRule;
+import dev.paigewatson.models.Discount;
 import dev.paigewatson.models.StoreItem;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class DiscountService
 {
-    private final List<DiscountRule> discountRules;
+    private final List<Discount> discounts;
 
-    public DiscountService(List<DiscountRule> discountRules)
+    public DiscountService(List<Discount> discounts)
     {
-        this.discountRules = discountRules;
+        this.discounts = discounts;
     }
 
-    public int getTotalCreditDiscounts(List<StoreItem> storeItems)
+    public int getTotalCreditDiscounts(LocalDate saleDate, List<StoreItem> storeItems)
     {
-        return storeItems.stream()
-                .mapToInt(storeItem -> discountRules.stream()
-                        .mapToInt(storeItem::amountToSubtractForDiscount)
-                        .sum())
-                .sum();
+        int amount = 0;
+        for (Discount discount : discounts)
+        {
+            amount += discount.apply(saleDate, storeItems);
+        }
+        return amount;
     }
 }
