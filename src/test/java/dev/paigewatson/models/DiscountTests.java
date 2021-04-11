@@ -80,4 +80,20 @@ public class DiscountTests
         //assert
         assertThat(canBeApplied).isFalse();
     }
+    @Test
+    public void shouldNot_applyDiscount_whenSaleDate_isBeforeStartDate()
+    {
+        //assign
+        final LocalDate today = LocalDate.now();
+        final DiscountRule discountRule = new DiscountRule(50, APPLE_NAME);
+        final Discount discount = new Discount(APPLE_NAME, 1, today.plusDays(1), today.plusDays(1), discountRule);
+
+        final List<StoreItem> storeItems = new ArrayList<>();
+        storeItems.add(Item.Apple());
+
+        //act
+        final boolean canBeApplied = discount.isValid(today, storeItems);
+        //assert
+        assertThat(canBeApplied).isFalse();
+    }
 }
