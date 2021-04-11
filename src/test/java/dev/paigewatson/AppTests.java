@@ -1,7 +1,7 @@
 package dev.paigewatson;
 
-import dev.paigewatson.service.CommandLineReader;
-import dev.paigewatson.service.InputReader;
+import dev.paigewatson.service.io.CommandLineReader;
+import dev.paigewatson.service.io.InputReader;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 

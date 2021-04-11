@@ -1,4 +1,4 @@
-package dev.paigewatson.service;
+package dev.paigewatson.service.io;
 
 import java.io.InputStream;
 import java.util.Scanner;

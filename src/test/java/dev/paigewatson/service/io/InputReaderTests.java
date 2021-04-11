@@ -1,4 +1,4 @@
-package dev.paigewatson.service;
+package dev.paigewatson.service.io;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;

@@ -1,6 +1,6 @@
 package dev.paigewatson;
 
-import dev.paigewatson.service.CommandLineReader;
+import dev.paigewatson.service.io.CommandLineReader;
 
 public class Main
 {

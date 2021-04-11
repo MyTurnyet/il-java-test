@@ -1,9 +1,8 @@
 package dev.paigewatson;
 
-import dev.paigewatson.service.InputReader;
+import dev.paigewatson.service.io.InputReader;
 
 import java.io.PrintStream;
-import java.util.Scanner;
 
 public class App
 {

@@ -1,4 +1,4 @@
-package dev.paigewatson.service;
+package dev.paigewatson.service.io;
 
 public interface InputReader
 {
