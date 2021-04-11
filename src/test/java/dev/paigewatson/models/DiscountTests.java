@@ -98,7 +98,7 @@ public class DiscountTests
     }
 
     @Test
-    public void should_applyDiscount_whenValid_toOneApple()
+    public void should_applyDiscount_toOneApple()
     {
         final LocalDate today = LocalDate.now();
         final DiscountRule discountRule = new UnlimitedDiscountRule(50, APPLE_NAME);
@@ -106,6 +106,23 @@ public class DiscountTests
 
         final List<StoreItem> storeItems = new ArrayList<>();
         storeItems.add(Item.Apple());
+
+        //act
+        final int amountToSubtract = discount.apply(today, storeItems);
+        //assert
+        assertThat(amountToSubtract).isEqualTo(5);
+    }
+
+    @Test
+    public void should_applyDiscount_whenValid_onlyToOneApples()
+    {
+        final LocalDate today = LocalDate.now();
+        final DiscountRule discountRule = new UnlimitedDiscountRule(50, APPLE_NAME);
+        final Discount discount = new Discount(APPLE_NAME, 1, today, today, discountRule);
+
+        final List<StoreItem> storeItems = new ArrayList<>();
+        storeItems.add(Item.Apple());
+        storeItems.add(Item.Milk());
 
         //act
         final int amountToSubtract = discount.apply(today, storeItems);
