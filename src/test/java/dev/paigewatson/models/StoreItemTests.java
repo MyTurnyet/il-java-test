@@ -6,7 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -67,8 +67,8 @@ public class StoreItemTests
     {
         //assign
         final StoreItem storeItem = Item.Apples();
-        final LocalDateTime discountStart = LocalDateTime.now().minusDays(1);
-        final LocalDateTime discountEnd = discountStart.plusWeeks(7);
+        final LocalDate discountStart = LocalDate.now().minusDays(1);
+        final LocalDate discountEnd = discountStart.plusWeeks(7);
         final DiscountRule discountRule = new DiscountRule("apple", 10, discountStart, discountEnd);
         //act
         final int total = storeItem.AddCostToTotal(discountRule, 0);
