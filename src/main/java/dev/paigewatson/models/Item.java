@@ -47,19 +47,15 @@ public class Item implements StoreItem
     }
 
     @Override
-
-    public int AddCostToTotal(DiscountRule discountRule, int currentTotalCost)
-    {
-        if (!discountRule.matchesItemName(itemName))
-        {
-            return AddCostToTotal(currentTotalCost);
-        }
-        return currentTotalCost + discountRule.discountedAmount(costPerUnit);
-    }
-
-    @Override
     public int AddCostToTotal(int currentTotalCost)
     {
         return currentTotalCost + costPerUnit;
+    }
+
+    @Override
+    public int amountToSubtractForDiscount(DiscountRule discountRule)
+    {
+        if (!discountRule.matchesItemName(itemName)) return 0;
+        return discountRule.discountedAmount(costPerUnit);
     }
 }
