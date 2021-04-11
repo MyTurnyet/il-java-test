@@ -18,7 +18,7 @@ public class DiscountRuleTests
         public void should_Discount_by10Percent()
         {
             //assign
-            final DiscountRule discountRule = getDiscountRuleForTest(10);
+            final DiscountRule discountRule = getAppleDiscountRuleForTest(10);
 
             //act
             final int discountedAmount = discountRule.discountedAmount(100);
@@ -30,7 +30,7 @@ public class DiscountRuleTests
         public void should_Discount_by50Percent()
         {
             //assign
-            final DiscountRule discountRule = getDiscountRuleForTest(50);
+            final DiscountRule discountRule = getAppleDiscountRuleForTest(50);
 
             //act
             final int discountedAmount = discountRule.discountedAmount(80);
@@ -42,7 +42,7 @@ public class DiscountRuleTests
         public void should_MatchName()
         {
             //assign
-            final DiscountRule discountRule = getDiscountRuleForTest(50);
+            final DiscountRule discountRule = getAppleDiscountRuleForTest(50);
 
             //act
             final boolean matchesItemName = discountRule.matchesItemName(APPLE_NAME);
@@ -54,7 +54,7 @@ public class DiscountRuleTests
         public void should_notMatchName()
         {
             //assign
-            final DiscountRule discountRule = getDiscountRuleForTest(50);
+            final DiscountRule discountRule = getAppleDiscountRuleForTest(50);
 
             //act
             final boolean matchesItemName = discountRule.matchesItemName(BREAD_NAME);
@@ -62,7 +62,7 @@ public class DiscountRuleTests
             assertThat(matchesItemName).isFalse();
         }
 
-        private DiscountRule getDiscountRuleForTest(int discountPercentage)
+        private DiscountRule getAppleDiscountRuleForTest(int discountPercentage)
         {
             return new UnlimitedDiscountRule(discountPercentage, APPLE_NAME);
         }
