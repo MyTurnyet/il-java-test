@@ -93,6 +93,4 @@ public class StoreItemTests
         //assert
         assertThat(total).isEqualTo(10);
     }
-
-
 }
