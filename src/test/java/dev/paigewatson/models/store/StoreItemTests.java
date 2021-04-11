@@ -1,5 +1,6 @@
-package dev.paigewatson.models;
+package dev.paigewatson.models.store;
 
+import dev.paigewatson.models.Pennies;
 import dev.paigewatson.models.discounts.DiscountRule;
 import dev.paigewatson.models.discounts.UnlimitedDiscountRule;
 import org.junit.jupiter.api.Tag;
@@ -11,10 +12,10 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.time.LocalDate;
 import java.util.stream.Stream;
 
-import static dev.paigewatson.models.Item.APPLE_NAME;
-import static dev.paigewatson.models.Item.BREAD_NAME;
-import static dev.paigewatson.models.Item.MILK_NAME;
-import static dev.paigewatson.models.Item.SOUP_NAME;
+import static dev.paigewatson.models.store.Item.APPLE_NAME;
+import static dev.paigewatson.models.store.Item.BREAD_NAME;
+import static dev.paigewatson.models.store.Item.MILK_NAME;
+import static dev.paigewatson.models.store.Item.SOUP_NAME;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @Tag("Unit")

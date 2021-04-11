@@ -1,8 +1,8 @@
 package dev.paigewatson.service;
 
 import dev.paigewatson.models.Pennies;
-import dev.paigewatson.models.StoreItem;
 import dev.paigewatson.models.discounts.Discount;
+import dev.paigewatson.models.store.StoreItem;
 
 import java.time.LocalDate;
 import java.util.List;

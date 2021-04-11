@@ -1,8 +1,8 @@
 package dev.paigewatson.models.discounts;
 
-import dev.paigewatson.models.Item;
 import dev.paigewatson.models.Pennies;
-import dev.paigewatson.models.StoreItem;
+import dev.paigewatson.models.store.Item;
+import dev.paigewatson.models.store.StoreItem;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import static dev.paigewatson.models.Item.APPLE_NAME;
+import static dev.paigewatson.models.store.Item.APPLE_NAME;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @Tag("Unit")

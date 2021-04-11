@@ -1,4 +1,6 @@
-package dev.paigewatson.models;
+package dev.paigewatson.models.store;
+
+import dev.paigewatson.models.Pennies;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

@@ -1,5 +1,6 @@
-package dev.paigewatson.models;
+package dev.paigewatson.models.store;
 
+import dev.paigewatson.models.Pennies;
 import dev.paigewatson.models.discounts.DiscountRule;
 
 public class Item implements StoreItem
