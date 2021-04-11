@@ -1,17 +1,20 @@
 package dev.paigewatson.service;
 
 import dev.paigewatson.models.DiscountRule;
-import dev.paigewatson.models.ShoppingCart;
+import dev.paigewatson.models.StoreItem;
 
 import java.util.List;
 
 public class DiscountService
 {
+    private final List<DiscountRule> discountRules;
+
     public DiscountService(List<DiscountRule> discountRules)
     {
+        this.discountRules = discountRules;
     }
 
-    public int applyDiscounts(ShoppingCart shoppingCart)
+    public int applyDiscounts(List<StoreItem> storeItems)
     {
         return 1;
     }

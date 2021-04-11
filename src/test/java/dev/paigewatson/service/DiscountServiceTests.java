@@ -2,7 +2,7 @@ package dev.paigewatson.service;
 
 import dev.paigewatson.models.DiscountRule;
 import dev.paigewatson.models.Item;
-import dev.paigewatson.models.ShoppingCart;
+import dev.paigewatson.models.StoreItem;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -20,8 +20,8 @@ public class DiscountServiceTests
     public void should_processDiscountRulesForApples()
     {
         //assign
-        final ShoppingCart shoppingCart = new ShoppingCart();
-        shoppingCart.addItem(Item.Apple());
+        ArrayList<StoreItem> items = new ArrayList<>();
+        items.add(Item.Apple());
 
         final DiscountRule appleDiscount = getDiscountRuleForTest(10, 0, 0);
         final List<DiscountRule> discountRules = new ArrayList<>();
@@ -30,7 +30,7 @@ public class DiscountServiceTests
         final DiscountService discountService = new DiscountService(discountRules);
 
         //act
-        final int discountedAmount = discountService.applyDiscounts(shoppingCart);
+        final int discountedAmount = discountService.applyDiscounts(items);
         //assert
         assertThat(discountedAmount).isEqualTo(1);
     }
