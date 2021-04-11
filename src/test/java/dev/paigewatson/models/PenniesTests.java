@@ -42,7 +42,18 @@ public class PenniesTests
         final Pennies penniesTotal = pennies1.add(pennies4);
         //assert
         assertThat(penniesTotal).isEqualTo(new Pennies(5));
+    }
 
+    @Test
+    public void should_FindPercentage()
+    {
+        //assign
+        final Pennies pennies = new Pennies(50);
+
+        //act
+        final Pennies percentageOfPennies = pennies.percentage(10);
+        //assert
+        assertThat(percentageOfPennies).isEqualTo(new Pennies(5));
     }
 
 }

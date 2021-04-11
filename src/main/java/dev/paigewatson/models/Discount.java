@@ -27,9 +27,14 @@ public class Discount
         return matchingItemsCount >= requireNumber;
     }
 
-    public int apply(LocalDate saleDate, List<StoreItem> storeItems)
+    public Pennies apply(LocalDate saleDate, List<StoreItem> storeItems)
     {
-        if(!isValid(saleDate,storeItems)) return 0;
-        return storeItems.stream().mapToInt(storeItem -> storeItem.amountToSubtractForDiscount(discountRule)).sum();
+        if (!isValid(saleDate, storeItems)) return new Pennies();
+        Pennies sum = new Pennies();
+        for (StoreItem storeItem : storeItems)
+        {
+            sum = sum.add(storeItem.amountToSubtractForDiscount(discountRule));
+        }
+        return sum;
     }
 }

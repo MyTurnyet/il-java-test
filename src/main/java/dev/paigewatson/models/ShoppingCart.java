@@ -24,14 +24,14 @@ public class ShoppingCart
         itemsInCart.add(item);
     }
 
-    public int totalCost()
+    public Pennies totalCost()
     {
-        int total = 0;
+        Pennies totalAmount = new Pennies(0);
         for (StoreItem storeItem : itemsInCart)
         {
-            total = storeItem.AddCostToTotal(total);
+           totalAmount =  storeItem.AddCostToTotal(totalAmount);
         }
-        return total;
+        return totalAmount;
     }
 
     public boolean purchaseDateMatches(LocalDate expectedDate)

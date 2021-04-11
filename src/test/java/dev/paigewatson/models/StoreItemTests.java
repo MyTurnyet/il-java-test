@@ -22,21 +22,21 @@ public class StoreItemTests
     private static Stream<Arguments> provideStringsForMatchItem()
     {
         return Stream.of(
-                Arguments.of(Item.Soup(), SOUP_NAME, 65),
-                Arguments.of(Item.Bread(), BREAD_NAME, 80),
-                Arguments.of(Item.Apple(), APPLE_NAME, 10),
-                Arguments.of(Item.Milk(), MILK_NAME, 130)
+                Arguments.of(Item.Soup(), SOUP_NAME, new Pennies(65)),
+                Arguments.of(Item.Bread(), BREAD_NAME, new Pennies(80)),
+                Arguments.of(Item.Apple(), APPLE_NAME, new Pennies(10)),
+                Arguments.of(Item.Milk(), MILK_NAME, new Pennies(130))
         );
     }
 
     @ParameterizedTest
     @MethodSource("provideStringsForMatchItem")
-    public void should_matchSoup_byName(StoreItem storeItem, String expectedName, int expectedCost)
+    public void should_matchSoup_byName(StoreItem storeItem, String expectedName, Pennies expectedCost)
     {
         //assign
         //act
         final boolean hasSameName = storeItem.hasSameName(expectedName);
-        final int total = storeItem.AddCostToTotal(0);
+        final Pennies total = storeItem.AddCostToTotal(new Pennies());
         //assert
         assertThat(hasSameName).isTrue();
         assertThat(total).isEqualTo(expectedCost);
@@ -49,9 +49,9 @@ public class StoreItemTests
         final StoreItem soup = Item.Soup();
 
         //act
-        final int total = soup.AddCostToTotal(0);
+        final Pennies total = soup.AddCostToTotal(new Pennies());
         //assert
-        assertThat(total).isEqualTo(65);
+        assertThat(total).isEqualTo(new Pennies(65));
     }
 
     @Test
@@ -61,9 +61,9 @@ public class StoreItemTests
         final StoreItem soup = Item.Soup();
 
         //act
-        final int total = soup.AddCostToTotal(110);
+        final Pennies total = soup.AddCostToTotal(new Pennies(110));
         //assert
-        assertThat(total).isEqualTo(175);
+        assertThat(total).isEqualTo(new Pennies(175));
     }
 
     @Test
@@ -75,9 +75,9 @@ public class StoreItemTests
         final LocalDate discountEnd = discountStart.plusWeeks(7);
         final DiscountRule discountRule = new UnlimitedDiscountRule(10, APPLE_NAME);
         //act
-        final int total = storeItem.amountToSubtractForDiscount(discountRule);
+        final Pennies total = storeItem.amountToSubtractForDiscount(discountRule);
         //assert
-        assertThat(total).isEqualTo(1);
+        assertThat(total).isEqualTo(new Pennies(1));
     }
 
     @Test
@@ -87,10 +87,10 @@ public class StoreItemTests
         final StoreItem storeItem = Item.Apple();
         final LocalDate discountStart = LocalDate.now().minusDays(1);
         final LocalDate discountEnd = discountStart.plusWeeks(7);
-        final DiscountRule discountRule = new UnlimitedDiscountRule( 10, BREAD_NAME);
+        final DiscountRule discountRule = new UnlimitedDiscountRule(10, BREAD_NAME);
         //act
-        final int total =storeItem.amountToSubtractForDiscount(discountRule);
+        final Pennies total = storeItem.amountToSubtractForDiscount(discountRule);
         //assert
-        assertThat(total).isEqualTo(0);
+        assertThat(total).isEqualTo(new Pennies());
     }
 }

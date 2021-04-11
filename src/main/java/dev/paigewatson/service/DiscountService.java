@@ -1,6 +1,7 @@
 package dev.paigewatson.service;
 
 import dev.paigewatson.models.Discount;
+import dev.paigewatson.models.Pennies;
 import dev.paigewatson.models.StoreItem;
 
 import java.time.LocalDate;
@@ -15,8 +16,13 @@ public class DiscountService
         this.discounts = discounts;
     }
 
-    public int getTotalCreditDiscounts(LocalDate saleDate, List<StoreItem> storeItems)
+    public Pennies getTotalCreditDiscounts(LocalDate saleDate, List<StoreItem> storeItems)
     {
-        return discounts.stream().mapToInt(discount -> discount.apply(saleDate, storeItems)).sum();
+        Pennies sum = new Pennies();
+        for (Discount discount : discounts)
+        {
+            sum = sum.add(discount.apply(saleDate, storeItems));
+        }
+        return sum;
     }
 }

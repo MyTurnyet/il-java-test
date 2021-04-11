@@ -2,7 +2,7 @@ package dev.paigewatson.models;
 
 public interface DiscountRule
 {
-    int discountedAmount(int fullCost);
+    Pennies discountedAmount(Pennies fullCost);
 
     boolean matchesItemName(String StoreItemName);
 }

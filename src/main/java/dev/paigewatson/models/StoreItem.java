@@ -4,7 +4,7 @@ public interface StoreItem
 {
     boolean hasSameName(String itemName);
 
-    int AddCostToTotal(int currentTotalCost);
+    Pennies AddCostToTotal(Pennies currentTotalCost);
 
-    int amountToSubtractForDiscount(DiscountRule discountRule);
+    Pennies amountToSubtractForDiscount(DiscountRule discountRule);
 }

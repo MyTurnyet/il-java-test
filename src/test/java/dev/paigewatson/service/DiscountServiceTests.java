@@ -3,6 +3,7 @@ package dev.paigewatson.service;
 import dev.paigewatson.models.Discount;
 import dev.paigewatson.models.DiscountRule;
 import dev.paigewatson.models.Item;
+import dev.paigewatson.models.Pennies;
 import dev.paigewatson.models.StoreItem;
 import dev.paigewatson.models.UnlimitedDiscountRule;
 import org.junit.jupiter.api.Tag;
@@ -34,9 +35,9 @@ public class DiscountServiceTests
 
 
         //act
-        final int discountedAmount = discountService.getTotalCreditDiscounts(today, items);
+        final Pennies discountedAmount = discountService.getTotalCreditDiscounts(today, items);
         //assert
-        assertThat(discountedAmount).isEqualTo(1);
+        assertThat(discountedAmount).isEqualTo(new Pennies(1));
     }
 
     @Test
@@ -56,9 +57,9 @@ public class DiscountServiceTests
         final DiscountService discountService = new DiscountService(discounts);
 
         //act
-        final int discountedAmount = discountService.getTotalCreditDiscounts(today, items);
+        final Pennies discountedAmount = discountService.getTotalCreditDiscounts(today, items);
         //assert
-        assertThat(discountedAmount).isEqualTo(3);
+        assertThat(discountedAmount).isEqualTo(new Pennies(3));
     }
 
     @Test
@@ -78,10 +79,11 @@ public class DiscountServiceTests
         final DiscountService discountService = new DiscountService(discounts);
 
         //act
-        final int discountedAmount = discountService.getTotalCreditDiscounts(today, items);
+        final Pennies discountedAmount = discountService.getTotalCreditDiscounts(today, items);
         //assert
-        assertThat(discountedAmount).isEqualTo(2);
+        assertThat(discountedAmount).isEqualTo(new Pennies(2));
     }
+
     @Test
     public void shouldNot_processDiscountRules_invalidDiscounts()
     {
@@ -99,9 +101,9 @@ public class DiscountServiceTests
         final DiscountService discountService = new DiscountService(discounts);
 
         //act
-        final int discountedAmount = discountService.getTotalCreditDiscounts(today.minusDays(3), items);
+        final Pennies discountedAmount = discountService.getTotalCreditDiscounts(today.minusDays(3), items);
         //assert
-        assertThat(discountedAmount).isEqualTo(0);
+        assertThat(discountedAmount).isEqualTo(new Pennies());
     }
 
     private Discount getAppleDiscount(LocalDate saleDate)

@@ -48,10 +48,10 @@ public class ShoppingCartTests
         shoppingCart.addItem(Item.Milk());
 
         //act
-        final int totalCost = shoppingCart.totalCost();
+        final Pennies totalCost = shoppingCart.totalCost();
 
         //assert
-        assertThat(totalCost).isEqualTo(190);
+        assertThat(totalCost).isEqualTo(new Pennies(190));
     }
 
     @Test
@@ -67,9 +67,9 @@ public class ShoppingCartTests
         shoppingCart.addItem(Item.Milk());
 
         //act
-        final int totalCost = shoppingCart.totalCost();
+        final Pennies totalCost = shoppingCart.totalCost();
 
         //assert
-        assertThat(totalCost).isEqualTo(290);
+        assertThat(totalCost).isEqualTo(new Pennies(290));
     }
 }

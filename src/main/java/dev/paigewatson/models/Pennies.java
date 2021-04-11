@@ -36,4 +36,10 @@ public class Pennies
     {
         return new Pennies(penniesToAdd.baseAmount + this.baseAmount);
     }
+
+    public Pennies percentage(int percentage)
+    {
+        final int percentageAmount = (baseAmount * percentage) / 100;
+        return new Pennies(percentageAmount);
+    }
 }

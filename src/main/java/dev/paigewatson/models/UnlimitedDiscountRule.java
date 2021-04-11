@@ -12,9 +12,10 @@ public class UnlimitedDiscountRule implements DiscountRule
     }
 
     @Override
-    public int discountedAmount(int fullCost)
+    public Pennies discountedAmount(Pennies fullCost)
     {
-        return (fullCost * discountPercentage) / 100;
+        return fullCost.percentage(discountPercentage);
+//        return (fullCost * discountPercentage) / 100;
     }
 
     @Override

@@ -19,11 +19,11 @@ public class DiscountRuleTests
         {
             //assign
             final DiscountRule discountRule = getAppleDiscountRuleForTest(10);
-
+            final Pennies fullCost = new Pennies(100);
             //act
-            final int discountedAmount = discountRule.discountedAmount(100);
+            final Pennies discountedAmount = discountRule.discountedAmount(fullCost);
             //assert
-            assertThat(discountedAmount).isEqualTo(10);
+            assertThat(discountedAmount).isEqualTo(new Pennies(10));
         }
 
         @Test
@@ -31,11 +31,12 @@ public class DiscountRuleTests
         {
             //assign
             final DiscountRule discountRule = getAppleDiscountRuleForTest(50);
+            final Pennies fullCost = new Pennies(80);
 
             //act
-            final int discountedAmount = discountRule.discountedAmount(80);
+            final Pennies discountedAmount = discountRule.discountedAmount(fullCost);
             //assert
-            assertThat(discountedAmount).isEqualTo(40);
+            assertThat(discountedAmount).isEqualTo(new Pennies(40));
         }
 
         @Test

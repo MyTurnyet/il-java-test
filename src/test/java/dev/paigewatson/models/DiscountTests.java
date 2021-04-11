@@ -80,6 +80,7 @@ public class DiscountTests
         //assert
         assertThat(canBeApplied).isFalse();
     }
+
     @Test
     public void shouldNot_applyDiscount_whenSaleDate_isBeforeStartDate()
     {
@@ -108,9 +109,9 @@ public class DiscountTests
         storeItems.add(Item.Apple());
 
         //act
-        final int amountToSubtract = discount.apply(today, storeItems);
+        final Pennies amountToSubtract = discount.apply(today, storeItems);
         //assert
-        assertThat(amountToSubtract).isEqualTo(5);
+        assertThat(amountToSubtract).isEqualTo(new Pennies(5));
     }
 
     @Test
@@ -125,9 +126,9 @@ public class DiscountTests
         storeItems.add(Item.Milk());
 
         //act
-        final int amountToSubtract = discount.apply(today, storeItems);
+        final Pennies amountToSubtract = discount.apply(today, storeItems);
         //assert
-        assertThat(amountToSubtract).isEqualTo(5);
+        assertThat(amountToSubtract).isEqualTo(new Pennies(5));
     }
 
     @Test
@@ -142,8 +143,8 @@ public class DiscountTests
         storeItems.add(Item.Milk());
 
         //act
-        final int amountToSubtract = discount.apply(today, storeItems);
+        final Pennies amountToSubtract = discount.apply(today, storeItems);
         //assert
-        assertThat(amountToSubtract).isEqualTo(0);
+        assertThat(amountToSubtract).isEqualTo(new Pennies());
     }
 }
