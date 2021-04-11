@@ -18,14 +18,16 @@ public class Item implements StoreItem
 
     public static StoreItem Bread()
     {
-        return new Item(BREAD_NAME,  80);
+        return new Item(BREAD_NAME, 80);
 
     }
+
     public static StoreItem Apple()
     {
-        return new Item(APPLE_NAME,  10);
+        return new Item(APPLE_NAME, 10);
 
     }
+
     public static StoreItem Milk()
     {
         return new Item(MILK_NAME, 130);
@@ -48,7 +50,10 @@ public class Item implements StoreItem
 
     public int AddCostToTotal(DiscountRule discountRule, int currentTotalCost)
     {
-
+        if (!discountRule.matchesItemName(itemName))
+        {
+            return AddCostToTotal(currentTotalCost);
+        }
         return currentTotalCost + discountRule.discountedAmount(costPerUnit);
     }
 

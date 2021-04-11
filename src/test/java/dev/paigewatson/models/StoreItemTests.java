@@ -80,5 +80,19 @@ public class StoreItemTests
         assertThat(total).isEqualTo(9);
     }
 
+    @Test
+    public void should_NotApplyDiscountToApple_becauseNameDoesntMatch()
+    {
+        //assign
+        final StoreItem storeItem = Item.Apple();
+        final LocalDate discountStart = LocalDate.now().minusDays(1);
+        final LocalDate discountEnd = discountStart.plusWeeks(7);
+        final DiscountRule discountRule = new DiscountRule(BREAD_NAME, 10, discountStart, discountEnd);
+        //act
+        final int total = storeItem.AddCostToTotal(discountRule, 0);
+        //assert
+        assertThat(total).isEqualTo(10);
+    }
+
 
 }
