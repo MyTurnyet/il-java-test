@@ -12,22 +12,6 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class DiscountRuleTests
 {
     @Nested
-    public class NullDiscountRuleTests
-    {
-        @Test
-        public void should_returnDiscountedAmount_0()
-        {
-            //assign
-            final DiscountRule nullDiscountRule = new NullDiscountRule();
-
-            //act
-            final int discountedAmount = nullDiscountRule.discountedAmount(100);
-            //assert
-            assertThat(discountedAmount).isEqualTo(0);
-        }
-    }
-
-    @Nested
     public class UnlimitedDiscountRuleTests
     {
         @Test
