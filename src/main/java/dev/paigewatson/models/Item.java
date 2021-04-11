@@ -39,15 +39,17 @@ public class Item implements StoreItem
     }
 
     @Override
-    public int AddCostToTotal(DiscountRule discountRule, int currentTotalCost)
-    {
-        return currentTotalCost + discountRule.discountedAmount(costPerUnit);
-    }
-
-    @Override
     public boolean hasSameName(String expectedName)
     {
         return expectedName.equals(itemName);
+    }
+
+    @Override
+
+    public int AddCostToTotal(DiscountRule discountRule, int currentTotalCost)
+    {
+
+        return currentTotalCost + discountRule.discountedAmount(costPerUnit);
     }
 
     @Override

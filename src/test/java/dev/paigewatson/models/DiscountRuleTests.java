@@ -83,4 +83,5 @@ public class DiscountRuleTests
         //assert
         assertThat(inEffect).isFalse();
     }
+
 }
