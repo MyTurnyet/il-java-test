@@ -8,29 +8,6 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @Tag("Unit")
 public class ShoppingCartTests
 {
-    @Test
-    public void should_haveNoItems()
-    {
-        //assign
-        final ShoppingCart shoppingCart = new ShoppingCart();
-
-        //act
-        final int itemCount = shoppingCart.itemCount();
-        //assert
-        assertThat(itemCount).isEqualTo(0);
-    }
-
-    @Test
-    public void should_addSoup_toTheItemList()
-    {
-        //assign
-        final ShoppingCart shoppingCart = new ShoppingCart();
-
-        //act
-        shoppingCart.addItem(Item.Soup());
-        //assert
-        assertThat(shoppingCart.itemCount()).isEqualTo(1);
-    }
 
     @Test
     public void should_calculateCosts_6Apples_1Milk()
@@ -50,6 +27,7 @@ public class ShoppingCartTests
         //assert
         assertThat(totalCost).isEqualTo(190);
     }
+
     @Test
     public void should_calculateCosts_2Bread_1Milk()
     {
