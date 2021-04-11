@@ -2,8 +2,7 @@ package dev.paigewatson.service;
 
 import dev.paigewatson.models.Pennies;
 import dev.paigewatson.models.discounts.Discount;
-import dev.paigewatson.models.discounts.DiscountRule;
-import dev.paigewatson.models.discounts.UnlimitedDiscountRule;
+import dev.paigewatson.models.discounts.DiscountFactory;
 import dev.paigewatson.models.store.Item;
 import dev.paigewatson.models.store.StoreItem;
 import org.junit.jupiter.api.Tag;
@@ -13,7 +12,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import static dev.paigewatson.models.store.Item.APPLE_NAME;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @Tag("Unit")
@@ -27,7 +25,7 @@ public class DiscountServiceTests
         items.add(Item.Apple());
 
         final LocalDate today = LocalDate.now();
-        final Discount appleDiscount = getAppleDiscount(today);
+        final Discount appleDiscount = DiscountFactory.applesDiscount();
         final List<Discount> discounts = new ArrayList<>();
         discounts.add(appleDiscount);
 
@@ -35,7 +33,7 @@ public class DiscountServiceTests
 
 
         //act
-        final Pennies discountedAmount = discountService.getTotalCreditDiscounts(today, items);
+        final Pennies discountedAmount = discountService.getTotalCreditDiscounts(today.plusDays(3), items);
         //assert
         assertThat(discountedAmount).isEqualTo(new Pennies(1));
     }
@@ -50,14 +48,14 @@ public class DiscountServiceTests
         items.add(Item.Apple());
 
         final LocalDate today = LocalDate.now();
-        final Discount appleDiscount = getAppleDiscount(today);
+        final Discount appleDiscount = DiscountFactory.applesDiscount();
         final List<Discount> discounts = new ArrayList<>();
         discounts.add(appleDiscount);
 
         final DiscountService discountService = new DiscountService(discounts);
 
         //act
-        final Pennies discountedAmount = discountService.getTotalCreditDiscounts(today, items);
+        final Pennies discountedAmount = discountService.getTotalCreditDiscounts(today.plusDays(3), items);
         //assert
         assertThat(discountedAmount).isEqualTo(new Pennies(3));
     }
@@ -72,14 +70,14 @@ public class DiscountServiceTests
         items.add(Item.Milk());
 
         final LocalDate today = LocalDate.now();
-        final Discount appleDiscount = getAppleDiscount(today);
+        final Discount appleDiscount = DiscountFactory.applesDiscount();
         final List<Discount> discounts = new ArrayList<>();
         discounts.add(appleDiscount);
 
         final DiscountService discountService = new DiscountService(discounts);
 
         //act
-        final Pennies discountedAmount = discountService.getTotalCreditDiscounts(today, items);
+        final Pennies discountedAmount = discountService.getTotalCreditDiscounts(today.plusDays(3), items);
         //assert
         assertThat(discountedAmount).isEqualTo(new Pennies(2));
     }
@@ -94,7 +92,7 @@ public class DiscountServiceTests
         items.add(Item.Milk());
 
         final LocalDate today = LocalDate.now();
-        final Discount appleDiscount = getAppleDiscount(today);
+        final Discount appleDiscount = DiscountFactory.applesDiscount();
         final List<Discount> discounts = new ArrayList<>();
         discounts.add(appleDiscount);
 
@@ -104,16 +102,5 @@ public class DiscountServiceTests
         final Pennies discountedAmount = discountService.getTotalCreditDiscounts(today.minusDays(3), items);
         //assert
         assertThat(discountedAmount).isEqualTo(new Pennies());
-    }
-
-    private Discount getAppleDiscount(LocalDate saleDate)
-    {
-        final DiscountRule appleDiscountRule = getDiscountRuleForTest();
-        return new Discount(APPLE_NAME, 1, saleDate, saleDate, appleDiscountRule);
-    }
-
-    private DiscountRule getDiscountRuleForTest()
-    {
-        return new UnlimitedDiscountRule(10, APPLE_NAME);
     }
 }
