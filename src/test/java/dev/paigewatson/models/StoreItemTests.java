@@ -9,6 +9,10 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.time.LocalDate;
 import java.util.stream.Stream;
 
+import static dev.paigewatson.models.Item.APPLE_NAME;
+import static dev.paigewatson.models.Item.BREAD_NAME;
+import static dev.paigewatson.models.Item.MILK_NAME;
+import static dev.paigewatson.models.Item.SOUP_NAME;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @Tag("Unit")
@@ -18,10 +22,10 @@ public class StoreItemTests
     private static Stream<Arguments> provideStringsForMatchItem()
     {
         return Stream.of(
-                Arguments.of(Item.Soup(), "soup", 65),
-                Arguments.of(Item.Bread(), "bread", 80),
-                Arguments.of(Item.Apples(), "apples", 10),
-                Arguments.of(Item.Milk(), "milk", 130)
+                Arguments.of(Item.Soup(), SOUP_NAME, 65),
+                Arguments.of(Item.Bread(), BREAD_NAME, 80),
+                Arguments.of(Item.Apples(), APPLE_NAME, 10),
+                Arguments.of(Item.Milk(), MILK_NAME, 130)
         );
     }
 
@@ -69,10 +73,12 @@ public class StoreItemTests
         final StoreItem storeItem = Item.Apples();
         final LocalDate discountStart = LocalDate.now().minusDays(1);
         final LocalDate discountEnd = discountStart.plusWeeks(7);
-        final DiscountRule discountRule = new DiscountRule("apple", 10, discountStart, discountEnd);
+        final DiscountRule discountRule = new DiscountRule(APPLE_NAME, 10, discountStart, discountEnd);
         //act
         final int total = storeItem.AddCostToTotal(discountRule, 0);
         //assert
         assertThat(total).isEqualTo(9);
     }
+
+
 }
