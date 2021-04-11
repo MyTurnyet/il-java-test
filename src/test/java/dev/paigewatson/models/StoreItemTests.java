@@ -1,5 +1,7 @@
 package dev.paigewatson.models;
 
+import dev.paigewatson.models.discounts.DiscountRule;
+import dev.paigewatson.models.discounts.UnlimitedDiscountRule;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

@@ -1,5 +1,8 @@
-package dev.paigewatson.models;
+package dev.paigewatson.models.discounts;
 
+import dev.paigewatson.models.Item;
+import dev.paigewatson.models.Pennies;
+import dev.paigewatson.models.StoreItem;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 

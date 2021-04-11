@@ -1,4 +1,6 @@
-package dev.paigewatson.models;
+package dev.paigewatson.models.discounts;
+
+import dev.paigewatson.models.Pennies;
 
 public class UnlimitedDiscountRule implements DiscountRule
 {

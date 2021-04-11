@@ -1,5 +1,7 @@
 package dev.paigewatson.models;
 
+import dev.paigewatson.models.discounts.DiscountRule;
+
 public class Item implements StoreItem
 {
 

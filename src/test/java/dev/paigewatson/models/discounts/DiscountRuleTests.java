@@ -1,5 +1,6 @@
-package dev.paigewatson.models;
+package dev.paigewatson.models.discounts;
 
+import dev.paigewatson.models.Pennies;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;

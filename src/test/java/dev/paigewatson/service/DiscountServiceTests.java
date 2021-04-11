@@ -1,11 +1,11 @@
 package dev.paigewatson.service;
 
-import dev.paigewatson.models.Discount;
-import dev.paigewatson.models.DiscountRule;
 import dev.paigewatson.models.Item;
 import dev.paigewatson.models.Pennies;
 import dev.paigewatson.models.StoreItem;
-import dev.paigewatson.models.UnlimitedDiscountRule;
+import dev.paigewatson.models.discounts.Discount;
+import dev.paigewatson.models.discounts.DiscountRule;
+import dev.paigewatson.models.discounts.UnlimitedDiscountRule;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
