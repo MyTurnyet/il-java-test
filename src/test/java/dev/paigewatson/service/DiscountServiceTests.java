@@ -40,6 +40,6 @@ public class DiscountServiceTests
         final LocalDate today = LocalDate.now();
         final LocalDate discountStart = today.plusDays(startDayFromNow);
         final LocalDate discountEnd = discountStart.plusDays(endDaysFromNow);
-        return new DiscountRule(APPLE_NAME, discountPercentage, discountStart, discountEnd);
+        return new DiscountRule(APPLE_NAME, discountPercentage, discountStart, discountEnd, 10, APPLE_NAME);
     }
 }

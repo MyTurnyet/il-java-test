@@ -12,6 +12,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @Tag("Unit")
 public class DiscountRuleTests
 {
+
     @Test
     public void should_Discount_by10Percent()
     {
@@ -107,6 +108,6 @@ public class DiscountRuleTests
         final LocalDate today = LocalDate.now();
         final LocalDate discountStart = today.plusDays(startDayFromNow);
         final LocalDate discountEnd = discountStart.plusDays(endDaysFromNow);
-        return new DiscountRule(APPLE_NAME, discountPercentage, discountStart, discountEnd);
+        return new DiscountRule(APPLE_NAME, 1, discountStart, discountEnd, discountPercentage, APPLE_NAME);
     }
 }

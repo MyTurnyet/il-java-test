@@ -6,15 +6,19 @@ public class DiscountRule
 {
     private final String discountItemName;
     private final int discountPercentage;
+    private final int requiredItemAmount;
     private final LocalDate discountStartDate;
     private final LocalDate discountEndDate;
+    private final String requiredItemName;
 
-    public DiscountRule(String itemName, int discountPercentage, LocalDate discountStart, LocalDate discountEnd)
+    public DiscountRule(String requiredItemName, int requiredItemAmount, LocalDate discountStart, LocalDate discountEnd, int discountPercentage, String nameOfItemToDiscount)
     {
-        discountItemName = itemName;
-        this.discountPercentage = discountPercentage;
+        this.requiredItemName = requiredItemName;
+        this.requiredItemAmount = requiredItemAmount;
         discountStartDate = discountStart;
         discountEndDate = discountEnd;
+        this.discountPercentage = discountPercentage;
+        discountItemName = nameOfItemToDiscount;
     }
 
     public int discountedAmount(int fullCost)
