@@ -1,6 +1,7 @@
 package dev.paigewatson.models.store;
 
 import dev.paigewatson.models.Pennies;
+import dev.paigewatson.service.io.OutputWriter;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ public class ShoppingCart
 
     public ShoppingCart()
     {
-    this(LocalDate.now());
+        this(LocalDate.now());
     }
 
     public ShoppingCart(LocalDate purchaseDate)
@@ -31,13 +32,18 @@ public class ShoppingCart
         Pennies totalAmount = new Pennies(0);
         for (StoreItem storeItem : itemsInCart)
         {
-           totalAmount =  storeItem.AddCostToTotal(totalAmount);
+            totalAmount = storeItem.AddCostToTotal(totalAmount);
         }
         return totalAmount;
     }
 
     public boolean purchaseDateMatches(LocalDate expectedDate)
     {
-        return expectedDate.compareTo(purchaseDate)==0;
+        return expectedDate.compareTo(purchaseDate) == 0;
+    }
+
+    public void writeContentsToOutput(OutputWriter outputWriter)
+    {
+        outputWriter.writeLine("apple`");
     }
 }

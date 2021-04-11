@@ -1,9 +1,13 @@
 package dev.paigewatson.models.store;
 
 import dev.paigewatson.models.Pennies;
+import dev.paigewatson.service.io.CommandLineWriter;
+import dev.paigewatson.service.io.OutputWriter;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.time.LocalDate;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -72,5 +76,22 @@ public class ShoppingCartTests
 
         //assert
         assertThat(totalCost).isEqualTo(new Pennies(290));
+    }
+
+    @Test
+    public void should_writeShoppingCartContentsToCommandLine()
+    {
+        //assign
+        final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        final PrintStream printStream = new PrintStream(outputStream);
+        final OutputWriter commandLineWriter = new CommandLineWriter(printStream);
+
+        final ShoppingCart shoppingCart = new ShoppingCart();
+        shoppingCart.addItem(Item.Apple());
+
+        //act
+        shoppingCart.writeContentsToOutput(commandLineWriter);
+        //assert
+        assertThat(outputStream.toString()).isEqualTo("apple\r\n");
     }
 }
