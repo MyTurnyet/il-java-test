@@ -7,6 +7,11 @@ public class CommandLineReader implements InputReader
 {
     private final Scanner scanner;
 
+    public CommandLineReader()
+    {
+        this(System.in);
+    }
+
     public CommandLineReader(InputStream inputStream)
     {
         this(new Scanner(inputStream));
