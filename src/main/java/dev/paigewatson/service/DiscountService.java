@@ -17,11 +17,6 @@ public class DiscountService
 
     public int getTotalCreditDiscounts(LocalDate saleDate, List<StoreItem> storeItems)
     {
-        int amount = 0;
-        for (Discount discount : discounts)
-        {
-            amount += discount.apply(saleDate, storeItems);
-        }
-        return amount;
+        return discounts.stream().mapToInt(discount -> discount.apply(saleDate, storeItems)).sum();
     }
 }
