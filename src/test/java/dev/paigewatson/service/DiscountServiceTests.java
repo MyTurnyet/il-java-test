@@ -17,7 +17,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class DiscountServiceTests
 {
     @Test
-    public void should_takeArrayOfDiscountRules()
+    public void should_processDiscountRulesForApples()
     {
         //assign
         final ShoppingCart shoppingCart = new ShoppingCart();
