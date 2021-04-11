@@ -16,6 +16,14 @@ public class DiscountService
 
     public int applyDiscounts(List<StoreItem> storeItems)
     {
-        return 1;
+        int amount = 0;
+        for (StoreItem storeItem : storeItems)
+        {
+            for (DiscountRule discountRule : discountRules)
+            {
+                 amount += storeItem.amountToSubtractForDiscount(discountRule);
+            }
+        }
+        return amount;
     }
 }

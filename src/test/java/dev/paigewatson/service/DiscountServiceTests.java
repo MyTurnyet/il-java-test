@@ -17,7 +17,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class DiscountServiceTests
 {
     @Test
-    public void should_processDiscountRulesForApples()
+    public void should_processDiscountRules_forOneApple()
     {
         //assign
         ArrayList<StoreItem> items = new ArrayList<>();
@@ -33,6 +33,27 @@ public class DiscountServiceTests
         final int discountedAmount = discountService.applyDiscounts(items);
         //assert
         assertThat(discountedAmount).isEqualTo(1);
+    }
+
+    @Test
+    public void should_processDiscountRules_forThreeApples()
+    {
+        //assign
+        ArrayList<StoreItem> items = new ArrayList<>();
+        items.add(Item.Apple());
+        items.add(Item.Apple());
+        items.add(Item.Apple());
+
+        final DiscountRule appleDiscount = getDiscountRuleForTest();
+        final List<DiscountRule> discountRules = new ArrayList<>();
+        discountRules.add(appleDiscount);
+
+        final DiscountService discountService = new DiscountService(discountRules);
+
+        //act
+        final int discountedAmount = discountService.applyDiscounts(items);
+        //assert
+        assertThat(discountedAmount).isEqualTo(3);
     }
 
     private DiscountRule getDiscountRuleForTest()
