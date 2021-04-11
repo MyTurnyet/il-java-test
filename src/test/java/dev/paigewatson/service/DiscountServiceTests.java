@@ -6,14 +6,13 @@ import dev.paigewatson.models.StoreItem;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 import static dev.paigewatson.models.Item.APPLE_NAME;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-    @Tag("Unit")
+@Tag("Unit")
 public class DiscountServiceTests
 {
     @Test
@@ -37,9 +36,6 @@ public class DiscountServiceTests
 
     private DiscountRule getDiscountRuleForTest(int discountPercentage, int startDayFromNow, int endDaysFromNow)
     {
-        final LocalDate today = LocalDate.now();
-        final LocalDate discountStart = today.plusDays(startDayFromNow);
-        final LocalDate discountEnd = discountStart.plusDays(endDaysFromNow);
-        return new DiscountRule(APPLE_NAME, discountPercentage, discountStart, discountEnd, 10, APPLE_NAME);
+        return new DiscountRule(10, APPLE_NAME);
     }
 }

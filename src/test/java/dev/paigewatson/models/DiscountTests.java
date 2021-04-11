@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static dev.paigewatson.models.Item.APPLE_NAME;
-import static dev.paigewatson.models.Item.BREAD_NAME;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
     @Tag("Unit")
@@ -19,8 +18,8 @@ public class DiscountTests
     {
         //assign
         final LocalDate today = LocalDate.now();
-        final DiscountRule discountRule = new DiscountRule(APPLE_NAME, 1, today, today, 50, APPLE_NAME);
-        final Discount discount = new Discount(APPLE_NAME, 1, discountRule);
+        final DiscountRule discountRule = new DiscountRule( 50, APPLE_NAME);
+        final Discount discount = new Discount(APPLE_NAME, 1, today, today, discountRule);
 
         final List<StoreItem> storeItems = new ArrayList<>();
         storeItems.add(Item.Apple());
@@ -35,8 +34,8 @@ public class DiscountTests
     {
         //assign
         final LocalDate today = LocalDate.now();
-        final DiscountRule discountRule = new DiscountRule(APPLE_NAME, 1, today, today, 50, APPLE_NAME);
-        final Discount discount = new Discount(APPLE_NAME, 2, discountRule);
+        final DiscountRule discountRule = new DiscountRule( 50, APPLE_NAME);
+        final Discount discount = new Discount(APPLE_NAME, 2, LocalDate.now(), LocalDate.now(), discountRule);
 
         final List<StoreItem> storeItems = new ArrayList<>();
         storeItems.add(Item.Apple());
@@ -51,8 +50,8 @@ public class DiscountTests
     {
         //assign
         final LocalDate today = LocalDate.now();
-        final DiscountRule discountRule = new DiscountRule(BREAD_NAME, 1, today, today, 50, APPLE_NAME);
-        final Discount discount = new Discount(APPLE_NAME, 1, discountRule);
+        final DiscountRule discountRule = new DiscountRule( 50, APPLE_NAME);
+        final Discount discount = new Discount(APPLE_NAME, 1,  today, today,discountRule);
 
         final List<StoreItem> storeItems = new ArrayList<>();
         storeItems.add(Item.Bread());
