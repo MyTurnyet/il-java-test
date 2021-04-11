@@ -17,7 +17,7 @@ public class ShoppingCartTests
 
         for (int numberToAdd = 0; numberToAdd < 6; numberToAdd++)
         {
-            shoppingCart.addItem(Item.Apples());
+            shoppingCart.addItem(Item.Apple());
         }
         shoppingCart.addItem(Item.Milk());
 

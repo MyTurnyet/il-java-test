@@ -24,7 +24,7 @@ public class StoreItemTests
         return Stream.of(
                 Arguments.of(Item.Soup(), SOUP_NAME, 65),
                 Arguments.of(Item.Bread(), BREAD_NAME, 80),
-                Arguments.of(Item.Apples(), APPLE_NAME, 10),
+                Arguments.of(Item.Apple(), APPLE_NAME, 10),
                 Arguments.of(Item.Milk(), MILK_NAME, 130)
         );
     }
@@ -70,7 +70,7 @@ public class StoreItemTests
     public void should_applyDiscountToApple()
     {
         //assign
-        final StoreItem storeItem = Item.Apples();
+        final StoreItem storeItem = Item.Apple();
         final LocalDate discountStart = LocalDate.now().minusDays(1);
         final LocalDate discountEnd = discountStart.plusWeeks(7);
         final DiscountRule discountRule = new DiscountRule(APPLE_NAME, 10, discountStart, discountEnd);

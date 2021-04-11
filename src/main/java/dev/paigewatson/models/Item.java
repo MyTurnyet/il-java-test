@@ -21,7 +21,7 @@ public class Item implements StoreItem
         return new Item(BREAD_NAME,  80);
 
     }
-    public static StoreItem Apples()
+    public static StoreItem Apple()
     {
         return new Item(APPLE_NAME,  10);
 
