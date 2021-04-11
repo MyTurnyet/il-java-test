@@ -66,7 +66,7 @@ public class DiscountRuleTests
         //assign
         final LocalDate today = LocalDate.now();
 
-        final DiscountRule discountRule = getDiscountRuleForTest(50, -2, -1);
+        final DiscountRule discountRule = getDiscountRuleForTest(50, -1, -1);
         //act
         final boolean inEffect = discountRule.isInEffect(today);
         //assert
@@ -105,7 +105,7 @@ public class DiscountRuleTests
     private DiscountRule getDiscountRuleForTest(int discountPercentage, int startDayFromNow, int endDaysFromNow)
     {
         final LocalDate today = LocalDate.now();
-        final LocalDate discountStart = today.minusDays(startDayFromNow);
+        final LocalDate discountStart = today.plusDays(startDayFromNow);
         final LocalDate discountEnd = discountStart.plusDays(endDaysFromNow);
         return new DiscountRule(APPLE_NAME, discountPercentage, discountStart, discountEnd);
     }
