@@ -3,12 +3,16 @@ package dev.paigewatson.models.store;
 import dev.paigewatson.models.Pennies;
 import dev.paigewatson.models.discounts.DiscountRule;
 import dev.paigewatson.models.discounts.UnlimitedDiscountRule;
+import dev.paigewatson.service.io.CommandLineWriter;
+import dev.paigewatson.service.io.OutputWriter;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.time.LocalDate;
 import java.util.stream.Stream;
 
@@ -95,5 +99,21 @@ public class StoreItemTests
         final Pennies total = storeItem.amountToSubtractForDiscount(discountRule);
         //assert
         assertThat(total).isEqualTo(new Pennies());
+    }
+
+    @Test
+    public void should_writeItem_toOutputWriter()
+    {
+        //assign
+        final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        final PrintStream printStream = new PrintStream(outputStream);
+        final OutputWriter commandLineWriter = new CommandLineWriter(printStream);
+
+        final StoreItem storeItem = Item.Apple();
+
+        //act
+        storeItem.writeNameToOutput(commandLineWriter);
+        //assert
+        assertThat(outputStream.toString()).isEqualTo("apple\r\n");
     }
 }

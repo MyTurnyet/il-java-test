@@ -44,6 +44,6 @@ public class ShoppingCart
 
     public void writeContentsToOutput(OutputWriter outputWriter)
     {
-        outputWriter.writeLine("apple`");
+        outputWriter.writeLine("apple");
     }
 }

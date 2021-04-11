@@ -2,6 +2,7 @@ package dev.paigewatson.models.store;
 
 import dev.paigewatson.models.Pennies;
 import dev.paigewatson.models.discounts.DiscountRule;
+import dev.paigewatson.service.io.OutputWriter;
 
 public class Item implements StoreItem
 {
@@ -60,5 +61,11 @@ public class Item implements StoreItem
     {
         if (!discountRule.matchesItemName(itemName)) return new Pennies();
         return discountRule.discountedAmount(costPerUnit);
+    }
+
+    @Override
+    public void writeNameToOutput(OutputWriter outputWriter)
+    {
+        outputWriter.writeLine(itemName);
     }
 }
