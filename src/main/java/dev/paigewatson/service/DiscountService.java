@@ -14,7 +14,7 @@ public class DiscountService
         this.discountRules = discountRules;
     }
 
-    public int applyDiscounts(List<StoreItem> storeItems)
+    public int getTotalCreditDiscounts(List<StoreItem> storeItems)
     {
         return storeItems.stream()
                 .mapToInt(storeItem -> discountRules.stream()

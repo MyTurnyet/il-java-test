@@ -30,7 +30,7 @@ public class DiscountServiceTests
         final DiscountService discountService = new DiscountService(discountRules);
 
         //act
-        final int discountedAmount = discountService.applyDiscounts(items);
+        final int discountedAmount = discountService.getTotalCreditDiscounts(items);
         //assert
         assertThat(discountedAmount).isEqualTo(1);
     }
@@ -51,7 +51,28 @@ public class DiscountServiceTests
         final DiscountService discountService = new DiscountService(discountRules);
 
         //act
-        final int discountedAmount = discountService.applyDiscounts(items);
+        final int discountedAmount = discountService.getTotalCreditDiscounts(items);
+        //assert
+        assertThat(discountedAmount).isEqualTo(3);
+    }
+
+    @Test
+    public void should_processDiscountRules_forTwoApplesAndMilk()
+    {
+        //assign
+        ArrayList<StoreItem> items = new ArrayList<>();
+        items.add(Item.Apple());
+        items.add(Item.Apple());
+        items.add(Item.Apple());
+
+        final DiscountRule appleDiscount = getDiscountRuleForTest();
+        final List<DiscountRule> discountRules = new ArrayList<>();
+        discountRules.add(appleDiscount);
+
+        final DiscountService discountService = new DiscountService(discountRules);
+
+        //act
+        final int discountedAmount = discountService.getTotalCreditDiscounts(items);
         //assert
         assertThat(discountedAmount).isEqualTo(3);
     }
