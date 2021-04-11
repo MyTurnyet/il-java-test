@@ -60,4 +60,16 @@ public class StoreItemTests
         //assert
         assertThat(total).isEqualTo(175);
     }
+
+    @Test
+    public void should_applyDiscountToApple()
+    {
+        //assign
+        final StoreItem storeItem = Item.Apples();
+        final DiscountRule discountRule = new DiscountRule("apple", 10);
+        //act
+        final int total = storeItem.AddCostToTotal(discountRule, 0);
+        //assert
+        assertThat(total).isEqualTo(9);
+    }
 }
