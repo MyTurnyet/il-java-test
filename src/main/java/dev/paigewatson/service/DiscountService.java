@@ -16,14 +16,10 @@ public class DiscountService
 
     public int applyDiscounts(List<StoreItem> storeItems)
     {
-        int amount = 0;
-        for (StoreItem storeItem : storeItems)
-        {
-            for (DiscountRule discountRule : discountRules)
-            {
-                 amount += storeItem.amountToSubtractForDiscount(discountRule);
-            }
-        }
-        return amount;
+        return storeItems.stream()
+                .mapToInt(storeItem -> discountRules.stream()
+                        .mapToInt(storeItem::amountToSubtractForDiscount)
+                        .sum())
+                .sum();
     }
 }
