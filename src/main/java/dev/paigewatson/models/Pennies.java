@@ -31,4 +31,9 @@ public class Pennies
     {
         return Objects.hash(baseAmount);
     }
+
+    public Pennies add(Pennies penniesToAdd)
+    {
+        return new Pennies(penniesToAdd.baseAmount + this.baseAmount);
+    }
 }

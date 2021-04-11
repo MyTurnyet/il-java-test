@@ -31,4 +31,18 @@ public class PenniesTests
         assertThat(pennies1).isNotEqualTo(pennies2);
     }
 
+    @Test
+    public void should_addPenniesTogether()
+    {
+        //assign
+        final Pennies pennies1 = new Pennies(1);
+        final Pennies pennies4 = new Pennies(4);
+
+        //act
+        final Pennies penniesTotal = pennies1.add(pennies4);
+        //assert
+        assertThat(penniesTotal).isEqualTo(new Pennies(5));
+
+    }
+
 }
