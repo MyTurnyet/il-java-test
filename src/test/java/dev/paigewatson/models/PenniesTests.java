@@ -5,18 +5,19 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-    @Tag("Unit")
+@Tag("Unit")
 public class PenniesTests
 {
     @Test
-    public void should_createAmount0()
+    public void should_equate()
     {
         //assign
-        final Pennies pennies = new Pennies(1);
+        final Pennies pennies1 = new Pennies();
+        final Pennies pennies2 = new Pennies();
 
         //act
-        final int amount = pennies.amount();
         //assert
-        assertThat(amount).isEqualTo(1);
+        assertThat(pennies1).isEqualTo(pennies2);
     }
+
 }
