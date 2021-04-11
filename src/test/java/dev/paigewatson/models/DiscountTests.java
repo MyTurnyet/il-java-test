@@ -129,4 +129,21 @@ public class DiscountTests
         //assert
         assertThat(amountToSubtract).isEqualTo(5);
     }
+
+    @Test
+    public void shouldNot_applyDiscount_whenInvalid()
+    {
+        final LocalDate today = LocalDate.now();
+        final DiscountRule discountRule = new UnlimitedDiscountRule(50, APPLE_NAME);
+        final Discount discount = new Discount(APPLE_NAME, 1, today.minusDays(1), today.minusDays(1), discountRule);
+
+        final List<StoreItem> storeItems = new ArrayList<>();
+        storeItems.add(Item.Apple());
+        storeItems.add(Item.Milk());
+
+        //act
+        final int amountToSubtract = discount.apply(today, storeItems);
+        //assert
+        assertThat(amountToSubtract).isEqualTo(0);
+    }
 }

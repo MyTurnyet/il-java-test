@@ -29,6 +29,7 @@ public class Discount
 
     public int apply(LocalDate saleDate, List<StoreItem> storeItems)
     {
+        if(!isValid(saleDate,storeItems)) return 0;
         int amountToSubtract = 0;
         for (StoreItem storeItem : storeItems)
         {
