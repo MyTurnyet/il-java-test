@@ -61,11 +61,6 @@ public class DiscountRuleTests
 
     private DiscountRule getDiscountRuleForTest(int discountPercentage)
     {
-        return getDiscountRuleForTest(discountPercentage, 0, 0);
-    }
-
-    private DiscountRule getDiscountRuleForTest(int discountPercentage, int startDayFromNow, int endDaysFromNow)
-    {
         return new DiscountRule( discountPercentage, APPLE_NAME);
     }
 }

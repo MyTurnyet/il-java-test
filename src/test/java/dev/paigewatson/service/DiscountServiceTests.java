@@ -22,7 +22,7 @@ public class DiscountServiceTests
         ArrayList<StoreItem> items = new ArrayList<>();
         items.add(Item.Apple());
 
-        final DiscountRule appleDiscount = getDiscountRuleForTest(10, 0, 0);
+        final DiscountRule appleDiscount = getDiscountRuleForTest();
         final List<DiscountRule> discountRules = new ArrayList<>();
         discountRules.add(appleDiscount);
 
@@ -34,7 +34,7 @@ public class DiscountServiceTests
         assertThat(discountedAmount).isEqualTo(1);
     }
 
-    private DiscountRule getDiscountRuleForTest(int discountPercentage, int startDayFromNow, int endDaysFromNow)
+    private DiscountRule getDiscountRuleForTest()
     {
         return new DiscountRule(10, APPLE_NAME);
     }
