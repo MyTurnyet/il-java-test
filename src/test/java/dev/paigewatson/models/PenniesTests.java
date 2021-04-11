@@ -19,5 +19,16 @@ public class PenniesTests
         //assert
         assertThat(pennies1).isEqualTo(pennies2);
     }
+    @Test
+    public void shouldNot_equate()
+    {
+        //assign
+        final Pennies pennies1 = new Pennies(2);
+        final Pennies pennies2 = new Pennies(1);
+
+        //act
+        //assert
+        assertThat(pennies1).isNotEqualTo(pennies2);
+    }
 
 }
