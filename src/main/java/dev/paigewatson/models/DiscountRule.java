@@ -23,7 +23,7 @@ public class DiscountRule
 
     public int discountedAmount(int fullCost)
     {
-        return fullCost - (fullCost * discountPercentage) / 100;
+        return (fullCost * discountPercentage) / 100;
     }
 
     public boolean isInEffect(LocalDate effectiveDate)

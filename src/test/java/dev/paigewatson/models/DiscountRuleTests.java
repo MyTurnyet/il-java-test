@@ -22,7 +22,7 @@ public class DiscountRuleTests
         //act
         final int discountedAmount = discountRule.discountedAmount(100);
         //assert
-        assertThat(discountedAmount).isEqualTo(90);
+        assertThat(discountedAmount).isEqualTo(10);
     }
 
     @Test
