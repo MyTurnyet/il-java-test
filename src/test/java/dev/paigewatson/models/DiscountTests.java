@@ -18,7 +18,7 @@ public class DiscountTests
     {
         //assign
         final LocalDate today = LocalDate.now();
-        final DiscountRule discountRule = new DiscountRule(50, APPLE_NAME);
+        final DiscountRule discountRule = new UnlimitedDiscountRule(50, APPLE_NAME);
         final Discount discount = new Discount(APPLE_NAME, 1, today, today, discountRule);
 
         final List<StoreItem> storeItems = new ArrayList<>();
@@ -35,7 +35,7 @@ public class DiscountTests
     {
         //assign
         final LocalDate today = LocalDate.now();
-        final DiscountRule discountRule = new DiscountRule(50, APPLE_NAME);
+        final DiscountRule discountRule = new UnlimitedDiscountRule(50, APPLE_NAME);
         final Discount discount = new Discount(APPLE_NAME, 2, LocalDate.now(), LocalDate.now(), discountRule);
 
         final List<StoreItem> storeItems = new ArrayList<>();
@@ -52,7 +52,7 @@ public class DiscountTests
     {
         //assign
         final LocalDate today = LocalDate.now();
-        final DiscountRule discountRule = new DiscountRule(50, APPLE_NAME);
+        final DiscountRule discountRule = new UnlimitedDiscountRule(50, APPLE_NAME);
         final Discount discount = new Discount(APPLE_NAME, 1, today, today, discountRule);
 
         final List<StoreItem> storeItems = new ArrayList<>();
@@ -69,7 +69,7 @@ public class DiscountTests
     {
         //assign
         final LocalDate today = LocalDate.now();
-        final DiscountRule discountRule = new DiscountRule(50, APPLE_NAME);
+        final DiscountRule discountRule = new UnlimitedDiscountRule(50, APPLE_NAME);
         final Discount discount = new Discount(APPLE_NAME, 1, today.minusDays(1), today.minusDays(1), discountRule);
 
         final List<StoreItem> storeItems = new ArrayList<>();
@@ -85,7 +85,7 @@ public class DiscountTests
     {
         //assign
         final LocalDate today = LocalDate.now();
-        final DiscountRule discountRule = new DiscountRule(50, APPLE_NAME);
+        final DiscountRule discountRule = new UnlimitedDiscountRule(50, APPLE_NAME);
         final Discount discount = new Discount(APPLE_NAME, 1, today.plusDays(1), today.plusDays(1), discountRule);
 
         final List<StoreItem> storeItems = new ArrayList<>();

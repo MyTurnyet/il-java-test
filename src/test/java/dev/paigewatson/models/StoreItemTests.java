@@ -73,7 +73,7 @@ public class StoreItemTests
         final StoreItem storeItem = Item.Apple();
         final LocalDate discountStart = LocalDate.now().minusDays(1);
         final LocalDate discountEnd = discountStart.plusWeeks(7);
-        final DiscountRule discountRule = new DiscountRule(10, APPLE_NAME);
+        final DiscountRule discountRule = new UnlimitedDiscountRule(10, APPLE_NAME);
         //act
         final int total = storeItem.amountToSubtractForDiscount(discountRule);
         //assert
@@ -87,7 +87,7 @@ public class StoreItemTests
         final StoreItem storeItem = Item.Apple();
         final LocalDate discountStart = LocalDate.now().minusDays(1);
         final LocalDate discountEnd = discountStart.plusWeeks(7);
-        final DiscountRule discountRule = new DiscountRule( 10, BREAD_NAME);
+        final DiscountRule discountRule = new UnlimitedDiscountRule( 10, BREAD_NAME);
         //act
         final int total =storeItem.amountToSubtractForDiscount(discountRule);
         //assert

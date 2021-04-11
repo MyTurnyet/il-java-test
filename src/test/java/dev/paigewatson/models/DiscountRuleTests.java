@@ -1,5 +1,6 @@
 package dev.paigewatson.models;
 
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -10,57 +11,76 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @Tag("Unit")
 public class DiscountRuleTests
 {
-
-    @Test
-    public void should_Discount_by10Percent()
+    @Nested
+    public class NullDiscountRuleTests
     {
-        //assign
-        final DiscountRule discountRule = getDiscountRuleForTest(10);
+        @Test
+        public void should_returnDiscountedAmount_0()
+        {
+            //assign
+            final DiscountRule nullDiscountRule = new NullDiscountRule();
 
-        //act
-        final int discountedAmount = discountRule.discountedAmount(100);
-        //assert
-        assertThat(discountedAmount).isEqualTo(10);
+            //act
+            final int discountedAmount = nullDiscountRule.discountedAmount(100);
+            //assert
+            assertThat(discountedAmount).isEqualTo(0);
+        }
     }
 
-    @Test
-    public void should_Discount_by50Percent()
+    @Nested
+    public class UnlimitedDiscountRuleTests
     {
-        //assign
-        final DiscountRule discountRule = getDiscountRuleForTest(50);
+        @Test
+        public void should_Discount_by10Percent()
+        {
+            //assign
+            final DiscountRule discountRule = getDiscountRuleForTest(10);
 
-        //act
-        final int discountedAmount = discountRule.discountedAmount(80);
-        //assert
-        assertThat(discountedAmount).isEqualTo(40);
-    }
+            //act
+            final int discountedAmount = discountRule.discountedAmount(100);
+            //assert
+            assertThat(discountedAmount).isEqualTo(10);
+        }
 
-    @Test
-    public void should_MatchName()
-    {
-        //assign
-        final DiscountRule discountRule = getDiscountRuleForTest(50);
+        @Test
+        public void should_Discount_by50Percent()
+        {
+            //assign
+            final DiscountRule discountRule = getDiscountRuleForTest(50);
 
-        //act
-        final boolean matchesItemName = discountRule.matchesItemName(APPLE_NAME);
-        //assert
-        assertThat(matchesItemName).isTrue();
-    }
+            //act
+            final int discountedAmount = discountRule.discountedAmount(80);
+            //assert
+            assertThat(discountedAmount).isEqualTo(40);
+        }
 
-    @Test
-    public void should_notMatchName()
-    {
-        //assign
-        final DiscountRule discountRule = getDiscountRuleForTest(50);
+        @Test
+        public void should_MatchName()
+        {
+            //assign
+            final DiscountRule discountRule = getDiscountRuleForTest(50);
 
-        //act
-        final boolean matchesItemName = discountRule.matchesItemName(BREAD_NAME);
-        //assert
-        assertThat(matchesItemName).isFalse();
-    }
+            //act
+            final boolean matchesItemName = discountRule.matchesItemName(APPLE_NAME);
+            //assert
+            assertThat(matchesItemName).isTrue();
+        }
 
-    private DiscountRule getDiscountRuleForTest(int discountPercentage)
-    {
-        return new DiscountRule( discountPercentage, APPLE_NAME);
+        @Test
+        public void should_notMatchName()
+        {
+            //assign
+            final DiscountRule discountRule = getDiscountRuleForTest(50);
+
+            //act
+            final boolean matchesItemName = discountRule.matchesItemName(BREAD_NAME);
+            //assert
+            assertThat(matchesItemName).isFalse();
+        }
+
+        private DiscountRule getDiscountRuleForTest(int discountPercentage)
+        {
+            return new UnlimitedDiscountRule(discountPercentage, APPLE_NAME);
+        }
     }
 }
