@@ -41,20 +41,26 @@ public class OutputWriterTests
         commandLineWriter.printMenu();
         //assert
         assertThat(outputStream.toString()).isEqualTo(
-                "Press a number to add an item:" + carriageReturn +
-                        "1. Apple" + carriageReturn +
-                        "2. Bread" + carriageReturn +
-                        "3. Milk" + carriageReturn +
-                        "4. Soup" + carriageReturn +
-                        carriageReturn +
-                        "  OR" + carriageReturn +
-                        carriageReturn +
-                        "5: Get a total" + carriageReturn +
-                        carriageReturn +
-                        "  OR" + carriageReturn +
-                        carriageReturn +
-                        "Press any other button to exit" + carriageReturn
-
+                getExpectedMenuString()
         );
+    }
+
+    public static String getExpectedMenuString()
+    {
+        String carriageReturn = "\r\n";
+
+        return "Press a number to add an item:" + carriageReturn +
+                "1. Apple" + carriageReturn +
+                "2. Bread" + carriageReturn +
+                "3. Milk" + carriageReturn +
+                "4. Soup" + carriageReturn +
+                carriageReturn +
+                "  OR" + carriageReturn +
+                carriageReturn +
+                "5: Get a total" + carriageReturn +
+                carriageReturn +
+                "  OR" + carriageReturn +
+                carriageReturn +
+                "Press any other button to exit" + carriageReturn;
     }
 }
