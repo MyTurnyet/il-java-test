@@ -9,7 +9,7 @@ public interface StoreItem extends ItemMatcher
 {
 //    boolean hasSameName(ItemName itemName);
 
-    Pennies AddCostToTotal(Pennies currentTotalCost);
+    Pennies addCostToTotal(Pennies currentTotalCost);
 
     Pennies amountToBeCreditedForDiscount(DiscountRule discountRule);
 

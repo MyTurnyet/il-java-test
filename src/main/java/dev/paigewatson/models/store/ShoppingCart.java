@@ -32,7 +32,7 @@ public class ShoppingCart
         Pennies totalAmount = new Pennies(0);
         for (StoreItem storeItem : itemsInCart)
         {
-            totalAmount = storeItem.AddCostToTotal(totalAmount);
+            totalAmount = storeItem.addCostToTotal(totalAmount);
         }
         return totalAmount;
     }

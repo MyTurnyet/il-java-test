@@ -45,7 +45,7 @@ public class Item implements StoreItem
     }
 
     @Override
-    public Pennies AddCostToTotal(Pennies currentTotalCost)
+    public Pennies addCostToTotal(Pennies currentTotalCost)
     {
         return currentTotalCost.add(costPerUnit);
     }

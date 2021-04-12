@@ -39,7 +39,7 @@ public class StoreItemTests
         //assign
         //act
         final boolean hasSameName = storeItem.matchesItemName(expectedName);
-        final Pennies total = storeItem.AddCostToTotal(new Pennies());
+        final Pennies total = storeItem.addCostToTotal(new Pennies());
         //assert
         assertThat(hasSameName).isTrue();
         assertThat(total).isEqualTo(expectedCost);
@@ -52,7 +52,7 @@ public class StoreItemTests
         final StoreItem soup = Item.Soup();
 
         //act
-        final Pennies total = soup.AddCostToTotal(new Pennies());
+        final Pennies total = soup.addCostToTotal(new Pennies());
         //assert
         assertThat(total).isEqualTo(new Pennies(65));
     }
@@ -64,7 +64,7 @@ public class StoreItemTests
         final StoreItem soup = Item.Soup();
 
         //act
-        final Pennies total = soup.AddCostToTotal(new Pennies(110));
+        final Pennies total = soup.addCostToTotal(new Pennies(110));
         //assert
         assertThat(total).isEqualTo(new Pennies(175));
     }
