@@ -1,12 +1,13 @@
 package dev.paigewatson.models.store;
 
+import dev.paigewatson.models.ItemMatcher;
 import dev.paigewatson.models.Pennies;
 import dev.paigewatson.models.discounts.DiscountRule;
 import dev.paigewatson.service.io.OutputWriter;
 
-public interface StoreItem
+public interface StoreItem extends ItemMatcher
 {
-    boolean hasSameName(ItemName itemName);
+//    boolean hasSameName(ItemName itemName);
 
     Pennies AddCostToTotal(Pennies currentTotalCost);
 

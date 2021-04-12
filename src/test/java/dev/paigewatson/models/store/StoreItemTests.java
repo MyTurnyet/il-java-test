@@ -38,7 +38,7 @@ public class StoreItemTests
     {
         //assign
         //act
-        final boolean hasSameName = storeItem.hasSameName(expectedName);
+        final boolean hasSameName = storeItem.matchesItemName(expectedName);
         final Pennies total = storeItem.AddCostToTotal(new Pennies());
         //assert
         assertThat(hasSameName).isTrue();

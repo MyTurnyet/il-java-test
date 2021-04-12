@@ -1,11 +1,9 @@
 package dev.paigewatson.models.discounts;
 
+import dev.paigewatson.models.ItemMatcher;
 import dev.paigewatson.models.Pennies;
-import dev.paigewatson.models.store.ItemName;
 
-public interface DiscountRule
+public interface DiscountRule extends ItemMatcher
 {
     Pennies discountedAmount(Pennies fullCost);
-
-    boolean matchesItemName(ItemName StoreItemName);
 }

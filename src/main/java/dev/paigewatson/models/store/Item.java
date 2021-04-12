@@ -39,7 +39,7 @@ public class Item implements StoreItem
     }
 
     @Override
-    public boolean hasSameName(ItemName expectedName)
+    public boolean matchesItemName(ItemName expectedName)
     {
         return expectedName.equals(itemName);
     }

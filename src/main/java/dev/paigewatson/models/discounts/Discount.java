@@ -27,7 +27,7 @@ public class Discount
     public boolean isValid(LocalDate saleDate, List<StoreItem> storeItems)
     {
         if (endDate.isBefore(saleDate) || startDate.isAfter(saleDate)) return false;
-        final long matchingItemsCount = storeItems.stream().filter(storeItem -> storeItem.hasSameName(requiredItemName)).count();
+        final long matchingItemsCount = storeItems.stream().filter(storeItem -> storeItem.matchesItemName(requiredItemName)).count();
         return matchingItemsCount >= requireNumber;
     }
 
