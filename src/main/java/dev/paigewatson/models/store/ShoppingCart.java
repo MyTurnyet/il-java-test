@@ -37,11 +37,6 @@ public class ShoppingCart
         return totalAmount;
     }
 
-    public boolean purchaseDateMatches(LocalDate expectedDate)
-    {
-        return expectedDate.compareTo(purchaseDate) == 0;
-    }
-
     public void writeContentsToOutput(OutputWriter outputWriter)
     {
         outputWriter.writeLine("apple");
