@@ -6,12 +6,6 @@ import dev.paigewatson.service.io.OutputWriter;
 
 public class Item implements StoreItem
 {
-
-    public static final String SOUP_NAME = "soup";
-    public static final String BREAD_NAME = "bread";
-    public static final String APPLE_NAME = "apple";
-    public static final String MILK_NAME = "milk";
-
     private final ItemName itemName;
     private final Pennies costPerUnit;
 
