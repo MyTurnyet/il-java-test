@@ -5,5 +5,5 @@ import dev.paigewatson.models.Pennies;
 
 public interface DiscountRule extends ItemMatcher
 {
-    Pennies discountedAmount(Pennies fullCost);
+    Pennies amountToBeCredited(Pennies fullCost);
 }
