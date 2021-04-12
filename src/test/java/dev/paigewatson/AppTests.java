@@ -1,7 +1,9 @@
 package dev.paigewatson;
 
 import dev.paigewatson.service.io.CommandLineReader;
+import dev.paigewatson.service.io.CommandLineWriter;
 import dev.paigewatson.service.io.InputReader;
+import dev.paigewatson.service.io.OutputWriter;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -22,12 +24,13 @@ public class AppTests
         final InputReader inputReader = new CommandLineReader(inputStream);
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         final PrintStream printStream = new PrintStream(output);
-        final App app = new App(printStream, inputReader);
+        final OutputWriter outputWriter = new CommandLineWriter(printStream);
+        final App app = new App(outputWriter, inputReader);
 
         //act
         app.run();
         //assert
-        assertThat(output.toString()).isEqualTo("you pressed: 1");
+        assertThat(output.toString()).isEqualTo("you pressed: 1\r\n");
     }
     @Test
     public void shouldNotOutput_aString_whenNothing_passedToScanner()
@@ -37,7 +40,8 @@ public class AppTests
         final InputReader inputReader = new CommandLineReader(inputStream);
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         final PrintStream printStream = new PrintStream(output);
-        final App app = new App(printStream, inputReader);
+        final OutputWriter outputWriter = new CommandLineWriter(printStream);
+        final App app = new App(outputWriter, inputReader);
 
         //act
         app.run();
@@ -53,11 +57,12 @@ public class AppTests
         final InputReader inputReader = new CommandLineReader(inputStream);
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         final PrintStream printStream = new PrintStream(output);
-        final App app = new App(printStream, inputReader);
+        final OutputWriter outputWriter = new CommandLineWriter(printStream);
+        final App app = new App(outputWriter, inputReader);
 
         //act
         app.run();
         //assert
-        assertThat(output.toString()).isEqualTo("Please input a number");
+        assertThat(output.toString()).isEqualTo("Thank you. Good Bye!\r\n");
     }
 }

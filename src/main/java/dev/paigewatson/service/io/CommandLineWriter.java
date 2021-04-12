@@ -6,6 +6,11 @@ public class CommandLineWriter implements OutputWriter
 {
     private final PrintStream outputStream;
 
+    public CommandLineWriter()
+    {
+        this(System.out);
+    }
+
     public CommandLineWriter(PrintStream outputStream)
     {
         this.outputStream = outputStream;

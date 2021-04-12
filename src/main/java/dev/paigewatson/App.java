@@ -1,17 +1,16 @@
 package dev.paigewatson;
 
 import dev.paigewatson.service.io.InputReader;
-
-import java.io.PrintStream;
+import dev.paigewatson.service.io.OutputWriter;
 
 public class App
 {
-    private final PrintStream printStream;
+    private final OutputWriter outputWriter;
     private final InputReader inputReader;
 
-    public App(PrintStream printStream, InputReader inputReader)
+    public App(OutputWriter outputWriter, InputReader inputReader)
     {
-        this.printStream = printStream;
+        this.outputWriter = outputWriter;
         this.inputReader = inputReader;
     }
 
@@ -21,10 +20,10 @@ public class App
         {
             if (inputReader.hasValidInteger())
             {
-                printStream.print("you pressed: 1");
+                outputWriter.writeLine("you pressed: 1");
             } else
             {
-                printStream.print("Please input a number");
+                outputWriter.writeLine("Thank you. Good Bye!");
             }
         }
     }
