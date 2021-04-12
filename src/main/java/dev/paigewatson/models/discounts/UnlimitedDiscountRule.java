@@ -1,13 +1,14 @@
 package dev.paigewatson.models.discounts;
 
 import dev.paigewatson.models.Pennies;
+import dev.paigewatson.models.store.ItemName;
 
 public class UnlimitedDiscountRule implements DiscountRule
 {
-    private final String discountItemName;
+    private final ItemName discountItemName;
     private final int discountPercentage;
 
-    public UnlimitedDiscountRule(int discountPercentage, String nameOfItemToDiscount)
+    public UnlimitedDiscountRule(int discountPercentage, ItemName nameOfItemToDiscount)
     {
         this.discountPercentage = discountPercentage;
         discountItemName = nameOfItemToDiscount;
@@ -21,7 +22,7 @@ public class UnlimitedDiscountRule implements DiscountRule
     }
 
     @Override
-    public boolean matchesItemName(String StoreItemName)
+    public boolean matchesItemName(ItemName StoreItemName)
     {
         return StoreItemName.equals(discountItemName);
     }

@@ -6,7 +6,7 @@ import dev.paigewatson.service.io.OutputWriter;
 
 public interface StoreItem
 {
-    boolean hasSameName(String itemName);
+    boolean hasSameName(ItemName itemName);
 
     Pennies AddCostToTotal(Pennies currentTotalCost);
 

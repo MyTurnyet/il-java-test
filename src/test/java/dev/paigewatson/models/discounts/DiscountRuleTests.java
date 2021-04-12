@@ -1,12 +1,11 @@
 package dev.paigewatson.models.discounts;
 
 import dev.paigewatson.models.Pennies;
+import dev.paigewatson.models.store.ItemName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import static dev.paigewatson.models.store.Item.APPLE_NAME;
-import static dev.paigewatson.models.store.Item.BREAD_NAME;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @Tag("Unit")
@@ -47,7 +46,7 @@ public class DiscountRuleTests
             final DiscountRule discountRule = getAppleDiscountRuleForTest(50);
 
             //act
-            final boolean matchesItemName = discountRule.matchesItemName(APPLE_NAME);
+            final boolean matchesItemName = discountRule.matchesItemName(ItemName.Apple);
             //assert
             assertThat(matchesItemName).isTrue();
         }
@@ -59,14 +58,14 @@ public class DiscountRuleTests
             final DiscountRule discountRule = getAppleDiscountRuleForTest(50);
 
             //act
-            final boolean matchesItemName = discountRule.matchesItemName(BREAD_NAME);
+            final boolean matchesItemName = discountRule.matchesItemName(ItemName.Bread);
             //assert
             assertThat(matchesItemName).isFalse();
         }
 
         private DiscountRule getAppleDiscountRuleForTest(int discountPercentage)
         {
-            return new UnlimitedDiscountRule(discountPercentage, APPLE_NAME);
+            return new UnlimitedDiscountRule(discountPercentage, ItemName.Apple);
         }
     }
 }

@@ -12,40 +12,40 @@ public class Item implements StoreItem
     public static final String APPLE_NAME = "apple";
     public static final String MILK_NAME = "milk";
 
-    private final String itemName;
+    private final ItemName itemName;
     private final Pennies costPerUnit;
 
     public static StoreItem Soup()
     {
-        return new Item(SOUP_NAME, new Pennies(65));
+        return new Item(ItemName.Soup, new Pennies(65));
     }
 
     public static StoreItem Bread()
     {
-        return new Item(BREAD_NAME, new Pennies(80));
+        return new Item(ItemName.Bread, new Pennies(80));
 
     }
 
     public static StoreItem Apple()
     {
-        return new Item(APPLE_NAME, new Pennies(10));
+        return new Item(ItemName.Apple, new Pennies(10));
 
     }
 
     public static StoreItem Milk()
     {
-        return new Item(MILK_NAME, new Pennies(130));
+        return new Item(ItemName.Milk, new Pennies(130));
 
     }
 
-    private Item(String itemName, Pennies costPerUnit)
+    private Item(ItemName itemName, Pennies costPerUnit)
     {
         this.itemName = itemName;
         this.costPerUnit = costPerUnit;
     }
 
     @Override
-    public boolean hasSameName(String expectedName)
+    public boolean hasSameName(ItemName expectedName)
     {
         return expectedName.equals(itemName);
     }
@@ -66,6 +66,6 @@ public class Item implements StoreItem
     @Override
     public void writeNameToOutput(OutputWriter outputWriter)
     {
-        outputWriter.writeLine(itemName);
+        outputWriter.writeLine(itemName.toString());
     }
 }

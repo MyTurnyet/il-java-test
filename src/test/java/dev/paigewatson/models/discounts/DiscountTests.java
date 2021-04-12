@@ -2,6 +2,7 @@ package dev.paigewatson.models.discounts;
 
 import dev.paigewatson.models.Pennies;
 import dev.paigewatson.models.store.Item;
+import dev.paigewatson.models.store.ItemName;
 import dev.paigewatson.models.store.StoreItem;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -10,7 +11,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import static dev.paigewatson.models.store.Item.APPLE_NAME;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @Tag("Unit")
@@ -21,8 +21,8 @@ public class DiscountTests
     {
         //assign
         final LocalDate today = LocalDate.now();
-        final DiscountRule discountRule = new UnlimitedDiscountRule(50, APPLE_NAME);
-        final Discount discount = new Discount(APPLE_NAME, 1, today, today, discountRule);
+        final DiscountRule discountRule = new UnlimitedDiscountRule(50, ItemName.Apple);
+        final Discount discount = new Discount(ItemName.Apple, 1, today, today, discountRule);
 
         final List<StoreItem> storeItems = new ArrayList<>();
         storeItems.add(Item.Apple());
@@ -38,8 +38,8 @@ public class DiscountTests
     {
         //assign
         final LocalDate today = LocalDate.now();
-        final DiscountRule discountRule = new UnlimitedDiscountRule(50, APPLE_NAME);
-        final Discount discount = new Discount(APPLE_NAME, 2, LocalDate.now(), LocalDate.now(), discountRule);
+        final DiscountRule discountRule = new UnlimitedDiscountRule(50, ItemName.Apple);
+        final Discount discount = new Discount(ItemName.Apple, 2, LocalDate.now(), LocalDate.now(), discountRule);
 
         final List<StoreItem> storeItems = new ArrayList<>();
         storeItems.add(Item.Apple());
@@ -55,8 +55,8 @@ public class DiscountTests
     {
         //assign
         final LocalDate today = LocalDate.now();
-        final DiscountRule discountRule = new UnlimitedDiscountRule(50, APPLE_NAME);
-        final Discount discount = new Discount(APPLE_NAME, 1, today, today, discountRule);
+        final DiscountRule discountRule = new UnlimitedDiscountRule(50, ItemName.Apple);
+        final Discount discount = new Discount(ItemName.Apple, 1, today, today, discountRule);
 
         final List<StoreItem> storeItems = new ArrayList<>();
         storeItems.add(Item.Bread());
@@ -72,8 +72,8 @@ public class DiscountTests
     {
         //assign
         final LocalDate today = LocalDate.now();
-        final DiscountRule discountRule = new UnlimitedDiscountRule(50, APPLE_NAME);
-        final Discount discount = new Discount(APPLE_NAME, 1, today.minusDays(1), today.minusDays(1), discountRule);
+        final DiscountRule discountRule = new UnlimitedDiscountRule(50, ItemName.Apple);
+        final Discount discount = new Discount(ItemName.Apple, 1, today.minusDays(1), today.minusDays(1), discountRule);
 
         final List<StoreItem> storeItems = new ArrayList<>();
         storeItems.add(Item.Apple());
@@ -89,8 +89,8 @@ public class DiscountTests
     {
         //assign
         final LocalDate today = LocalDate.now();
-        final DiscountRule discountRule = new UnlimitedDiscountRule(50, APPLE_NAME);
-        final Discount discount = new Discount(APPLE_NAME, 1, today.plusDays(1), today.plusDays(1), discountRule);
+        final DiscountRule discountRule = new UnlimitedDiscountRule(50, ItemName.Apple);
+        final Discount discount = new Discount(ItemName.Apple, 1, today.plusDays(1), today.plusDays(1), discountRule);
 
         final List<StoreItem> storeItems = new ArrayList<>();
         storeItems.add(Item.Apple());
@@ -105,8 +105,8 @@ public class DiscountTests
     public void should_applyDiscount_toOneApple()
     {
         final LocalDate today = LocalDate.now();
-        final DiscountRule discountRule = new UnlimitedDiscountRule(50, APPLE_NAME);
-        final Discount discount = new Discount(APPLE_NAME, 1, today, today, discountRule);
+        final DiscountRule discountRule = new UnlimitedDiscountRule(50, ItemName.Apple);
+        final Discount discount = new Discount(ItemName.Apple, 1, today, today, discountRule);
 
         final List<StoreItem> storeItems = new ArrayList<>();
         storeItems.add(Item.Apple());
@@ -121,8 +121,8 @@ public class DiscountTests
     public void should_applyDiscount_whenValid_onlyToOneApples()
     {
         final LocalDate today = LocalDate.now();
-        final DiscountRule discountRule = new UnlimitedDiscountRule(50, APPLE_NAME);
-        final Discount discount = new Discount(APPLE_NAME, 1, today, today, discountRule);
+        final DiscountRule discountRule = new UnlimitedDiscountRule(50, ItemName.Apple);
+        final Discount discount = new Discount(ItemName.Apple, 1, today, today, discountRule);
 
         final List<StoreItem> storeItems = new ArrayList<>();
         storeItems.add(Item.Apple());
@@ -138,8 +138,8 @@ public class DiscountTests
     public void shouldNot_applyDiscount_whenInvalid()
     {
         final LocalDate today = LocalDate.now();
-        final DiscountRule discountRule = new UnlimitedDiscountRule(50, APPLE_NAME);
-        final Discount discount = new Discount(APPLE_NAME, 1, today.minusDays(1), today.minusDays(1), discountRule);
+        final DiscountRule discountRule = new UnlimitedDiscountRule(50, ItemName.Apple);
+        final Discount discount = new Discount(ItemName.Apple, 1, today.minusDays(1), today.minusDays(1), discountRule);
 
         final List<StoreItem> storeItems = new ArrayList<>();
         storeItems.add(Item.Apple());

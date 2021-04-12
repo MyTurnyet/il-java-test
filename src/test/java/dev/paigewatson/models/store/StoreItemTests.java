@@ -16,10 +16,6 @@ import java.io.PrintStream;
 import java.time.LocalDate;
 import java.util.stream.Stream;
 
-import static dev.paigewatson.models.store.Item.APPLE_NAME;
-import static dev.paigewatson.models.store.Item.BREAD_NAME;
-import static dev.paigewatson.models.store.Item.MILK_NAME;
-import static dev.paigewatson.models.store.Item.SOUP_NAME;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @Tag("Unit")
@@ -29,16 +25,16 @@ public class StoreItemTests
     private static Stream<Arguments> provideStringsForMatchItem()
     {
         return Stream.of(
-                Arguments.of(Item.Soup(), SOUP_NAME, new Pennies(65)),
-                Arguments.of(Item.Bread(), BREAD_NAME, new Pennies(80)),
-                Arguments.of(Item.Apple(), APPLE_NAME, new Pennies(10)),
-                Arguments.of(Item.Milk(), MILK_NAME, new Pennies(130))
+                Arguments.of(Item.Soup(), ItemName.Soup, new Pennies(65)),
+                Arguments.of(Item.Bread(), ItemName.Bread, new Pennies(80)),
+                Arguments.of(Item.Apple(), ItemName.Apple, new Pennies(10)),
+                Arguments.of(Item.Milk(), ItemName.Milk, new Pennies(130))
         );
     }
 
     @ParameterizedTest
     @MethodSource("provideStringsForMatchItem")
-    public void should_matchSoup_byName(StoreItem storeItem, String expectedName, Pennies expectedCost)
+    public void should_matchSoup_byName(StoreItem storeItem, ItemName expectedName, Pennies expectedCost)
     {
         //assign
         //act
@@ -80,7 +76,7 @@ public class StoreItemTests
         final StoreItem storeItem = Item.Apple();
         final LocalDate discountStart = LocalDate.now().minusDays(1);
         final LocalDate discountEnd = discountStart.plusWeeks(7);
-        final DiscountRule discountRule = new UnlimitedDiscountRule(10, APPLE_NAME);
+        final DiscountRule discountRule = new UnlimitedDiscountRule(10, ItemName.Apple);
         //act
         final Pennies total = storeItem.amountToSubtractForDiscount(discountRule);
         //assert
@@ -94,7 +90,7 @@ public class StoreItemTests
         final StoreItem storeItem = Item.Apple();
         final LocalDate discountStart = LocalDate.now().minusDays(1);
         final LocalDate discountEnd = discountStart.plusWeeks(7);
-        final DiscountRule discountRule = new UnlimitedDiscountRule(10, BREAD_NAME);
+        final DiscountRule discountRule = new UnlimitedDiscountRule(10, ItemName.Bread);
         //act
         final Pennies total = storeItem.amountToSubtractForDiscount(discountRule);
         //assert
@@ -114,6 +110,6 @@ public class StoreItemTests
         //act
         storeItem.writeNameToOutput(commandLineWriter);
         //assert
-        assertThat(outputStream.toString()).isEqualTo("apple\r\n");
+        assertThat(outputStream.toString()).isEqualTo(ItemName.Apple + "\r\n");
     }
 }

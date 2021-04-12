@@ -1,6 +1,7 @@
 package dev.paigewatson.models.discounts;
 
 import dev.paigewatson.models.Pennies;
+import dev.paigewatson.models.store.ItemName;
 import dev.paigewatson.models.store.StoreItem;
 
 import java.time.LocalDate;
@@ -8,13 +9,13 @@ import java.util.List;
 
 public class Discount
 {
-    private final String requiredItemName;
+    private final ItemName requiredItemName;
     private final int requireNumber;
     private final LocalDate startDate;
     private final LocalDate endDate;
     private final DiscountRule discountRule;
 
-    public Discount(String requiredItemName, int requireNumber, LocalDate startDate, LocalDate endDate, DiscountRule discountRule)
+    public Discount(ItemName requiredItemName, int requireNumber, LocalDate startDate, LocalDate endDate, DiscountRule discountRule)
     {
         this.requiredItemName = requiredItemName;
         this.requireNumber = requireNumber;
