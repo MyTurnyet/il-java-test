@@ -78,7 +78,7 @@ public class StoreItemTests
         final LocalDate discountEnd = discountStart.plusWeeks(7);
         final DiscountRule discountRule = new UnlimitedDiscountRule(10, ItemName.Apple);
         //act
-        final Pennies total = storeItem.amountToSubtractForDiscount(discountRule);
+        final Pennies total = storeItem.amountToBeCreditedForDiscount(discountRule);
         //assert
         assertThat(total).isEqualTo(new Pennies(1));
     }
@@ -92,7 +92,7 @@ public class StoreItemTests
         final LocalDate discountEnd = discountStart.plusWeeks(7);
         final DiscountRule discountRule = new UnlimitedDiscountRule(10, ItemName.Bread);
         //act
-        final Pennies total = storeItem.amountToSubtractForDiscount(discountRule);
+        final Pennies total = storeItem.amountToBeCreditedForDiscount(discountRule);
         //assert
         assertThat(total).isEqualTo(new Pennies());
     }

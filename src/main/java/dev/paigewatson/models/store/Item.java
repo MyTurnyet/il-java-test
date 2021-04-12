@@ -51,10 +51,10 @@ public class Item implements StoreItem
     }
 
     @Override
-    public Pennies amountToSubtractForDiscount(DiscountRule discountRule)
+    public Pennies amountToBeCreditedForDiscount(DiscountRule discountRule)
     {
         if (!discountRule.matchesItemName(itemName)) return new Pennies();
-        return discountRule.discountedAmount(costPerUnit);
+        return discountRule.amountToBeCredited(costPerUnit);
     }
 
     @Override

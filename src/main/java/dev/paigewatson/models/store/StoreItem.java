@@ -11,7 +11,7 @@ public interface StoreItem extends ItemMatcher
 
     Pennies AddCostToTotal(Pennies currentTotalCost);
 
-    Pennies amountToSubtractForDiscount(DiscountRule discountRule);
+    Pennies amountToBeCreditedForDiscount(DiscountRule discountRule);
 
     void writeNameToOutput(OutputWriter outputWriter);
 }

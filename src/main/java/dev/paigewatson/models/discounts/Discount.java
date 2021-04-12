@@ -37,7 +37,7 @@ public class Discount
         Pennies sum = new Pennies();
         for (StoreItem storeItem : storeItems)
         {
-            sum = sum.add(storeItem.amountToSubtractForDiscount(discountRule));
+            sum = sum.add(storeItem.amountToBeCreditedForDiscount(discountRule));
         }
         return sum;
     }
