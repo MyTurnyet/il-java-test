@@ -16,6 +16,7 @@ public class App
 
     public void run()
     {
+        outputWriter.printMenu();
         if (inputReader.hasInput())
         {
             if (inputReader.hasValidInteger())
@@ -23,7 +24,7 @@ public class App
                 outputWriter.writeLine("you pressed: 1");
             } else
             {
-                outputWriter.writeLine("Thank you. Good Bye!");
+                outputWriter.writeLine("Thank you, Good bye!");
             }
         }
     }

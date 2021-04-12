@@ -4,6 +4,7 @@ import dev.paigewatson.service.io.CommandLineReader;
 import dev.paigewatson.service.io.CommandLineWriter;
 import dev.paigewatson.service.io.InputReader;
 import dev.paigewatson.service.io.OutputWriter;
+import dev.paigewatson.service.io.OutputWriterTests;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -30,8 +31,9 @@ public class AppTests
         //act
         app.run();
         //assert
-        assertThat(output.toString()).isEqualTo("you pressed: 1\r\n");
+        assertThat(output.toString()).isEqualTo(OutputWriterTests.getExpectedMenuString() + "you pressed: 1\r\n");
     }
+
     @Test
     public void shouldNotOutput_aString_whenNothing_passedToScanner()
     {
@@ -46,7 +48,7 @@ public class AppTests
         //act
         app.run();
         //assert
-        assertThat(output.toString()).isEqualTo("");
+        assertThat(output.toString()).isEqualTo(OutputWriterTests.getExpectedMenuString() + "");
     }
 
     @Test
@@ -63,6 +65,6 @@ public class AppTests
         //act
         app.run();
         //assert
-        assertThat(output.toString()).isEqualTo("Thank you. Good Bye!\r\n");
+        assertThat(output.toString()).isEqualTo(OutputWriterTests.getExpectedMenuString() + "Thank you, Good bye!\r\n");
     }
 }
