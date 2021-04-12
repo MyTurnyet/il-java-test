@@ -17,15 +17,14 @@ public class App
     public void run()
     {
         outputWriter.printMenu();
-        if (inputReader.hasInput())
+        try
         {
-            if (inputReader.hasValidInteger())
-            {
+            int choice = inputReader.getNextInteger();
+
                 outputWriter.writeLine("you pressed: 1");
-            } else
-            {
                 outputWriter.writeLine("Thank you, Good bye!");
-            }
+        } catch (Exception ex){
+            outputWriter.writeLine("Thank you, Good bye!");
         }
     }
 }

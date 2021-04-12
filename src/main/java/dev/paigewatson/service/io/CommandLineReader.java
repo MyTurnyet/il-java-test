@@ -23,14 +23,9 @@ public class CommandLineReader implements InputReader
     }
 
     @Override
-    public boolean hasInput()
+    public int getNextInteger()
     {
-        return scanner.hasNext();
+        return scanner.nextInt();
     }
 
-    @Override
-    public boolean hasValidInteger()
-    {
-        return scanner.hasNextInt();
-    }
 }

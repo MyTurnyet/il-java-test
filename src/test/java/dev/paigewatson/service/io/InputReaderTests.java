@@ -4,40 +4,14 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
+import java.util.InputMismatchException;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 @Tag("Unit")
 public class InputReaderTests
 {
-    @Test
-    public void should_returnTrue_whenHasInput()
-    {
-        //assign
-        final ByteArrayInputStream inputStream = new ByteArrayInputStream("1".getBytes());
-
-        final InputReader inputReader = new CommandLineReader(inputStream);
-
-        //act
-        final boolean hasInput = inputReader.hasInput();
-        //assert
-        assertThat(hasInput).isTrue();
-
-    }
-
-    @Test
-    public void should_returnFalse_whenNoInput()
-    {
-        //assign
-        final ByteArrayInputStream inputStream = new ByteArrayInputStream("".getBytes());
-
-        final InputReader inputReader = new CommandLineReader(inputStream);
-
-        //act
-        final boolean hasInput = inputReader.hasInput();
-        //assert
-        assertThat(hasInput).isFalse();
-    }
 
     @Test
     public void shouldNot_validateInput_asInt()
@@ -47,10 +21,13 @@ public class InputReaderTests
         final InputReader inputReader = new CommandLineReader(inputStream);
 
         //act
-        final boolean validInteger = inputReader.hasValidInteger();
+        assertThatThrownBy(() ->
+        {
+            final int validInteger = inputReader.getNextInteger();
+        }).isInstanceOf(InputMismatchException.class);
         //assert
-        assertThat(validInteger).isFalse();
     }
+
     @Test
     public void should_validateInput_asInt()
     {
@@ -59,8 +36,8 @@ public class InputReaderTests
         final InputReader inputReader = new CommandLineReader(inputStream);
 
         //act
-        final boolean validInteger = inputReader.hasValidInteger();
+        final int validInteger = inputReader.getNextInteger();
         //assert
-        assertThat(validInteger).isTrue();
+        assertThat(validInteger).isEqualTo(4);
     }
 }
